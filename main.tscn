@@ -5,8 +5,3 @@
 [node name="Player" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="Player"]
-
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="TileMap" type="TileMap" parent="Node2D"]
-format = 1
