@@ -26,9 +26,12 @@ func _process(delta):
 	if Input.is_action_pressed("ui_right"):
 		dx += 1
 
+	var normalized = Vector2(dx, dy).normalized()
+
 	if dx != 0 or dy != 0:
-		self.direction = Vector2(dx, dy).normalized()
-	self.position += Vector2(dx, dy).normalized() * SPEED * delta
+		self.direction = normalized
+
+	self.position += normalized * SPEED * delta
 
 	$AttackRange.rotation = self.direction.angle()
 
