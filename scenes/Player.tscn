@@ -19,8 +19,10 @@ rotation = 1.5708
 polygon = PoolVector2Array( -110, 0, -60, -90, 60, -90, 110, 0 )
 
 [node name="Weapon" type="Node2D" parent="."]
+z_index = -1
 
 [node name="Texture" type="Sprite" parent="Weapon"]
+position = Vector2( 0, -20 )
 rotation = 0.785398
 scale = Vector2( 0.04, 0.04 )
 texture = ExtResource( 3 )
