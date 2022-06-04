@@ -49,8 +49,7 @@ func _process(delta):
 
 func attack(delta):
 	print(weapon_rotation, "+", self.direction.angle(), "=", $Weapon.rotation)
-	weapon_rotation += TAU * delta * 4
-	print(weapon_rotation, "+", self.direction.angle(), "=", $Weapon.rotation)
+	weapon_rotation += TAU * delta * 3
 
 	if weapon_rotation >= PI:
 		weapon_rotation = 0
