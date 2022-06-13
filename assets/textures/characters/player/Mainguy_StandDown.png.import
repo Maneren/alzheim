@@ -2,20 +2,20 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/player.png-16b2d9f7929ce93a48c84c4a4848c43d.stex"
+path="res://.import/Mainguy_StandDown.png-175997c792651f834b81cbb57bd6575e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/characters/player.png"
-dest_files=[ "res://.import/player.png-16b2d9f7929ce93a48c84c4a4848c43d.stex" ]
+source_file="res://assets/textures/characters/player/Mainguy_StandDown.png"
+dest_files=[ "res://.import/Mainguy_StandDown.png-175997c792651f834b81cbb57bd6575e.stex" ]
 
 [params]
 
 compress/mode=0
-compress/lossy_quality=1
+compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
