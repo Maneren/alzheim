@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/textures/items/weapons/blacksaber.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Weapon.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+height = 38.0
+
+[node name="Weapon" type="Node2D"]
+z_index = -1
+script = ExtResource( 2 )
+
+[node name="Texture" type="Sprite" parent="."]
+position = Vector2( -3, -40 )
+scale = Vector2( 2, 2.03125 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( -16, -32 )
+flip_h = true
+
+[node name="WeaponHitBox" type="Area2D" parent="."]
+position = Vector2( 0, -72 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponHitBox"]
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="WeaponHitBox" to="." method="_on_WeaponHitBox_area_entered"]

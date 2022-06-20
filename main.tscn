@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/tiles.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=3]
 
 [node name="Node2D" type="Node2D"]
 
@@ -9,7 +10,11 @@
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 13955, 1114 )
-z_index = 1
+z_index = 8
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
+
+[node name="Enemy" parent="." instance=ExtResource( 3 )]
+position = Vector2( 14930, 1640 )
+z_index = 8
