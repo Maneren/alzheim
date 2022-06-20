@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/enemies/animation/Imp.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://scripts/enemies/Imp.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 12, 26 )
 
 [node name="Imp" instance=ExtResource( 3 )]
 script = ExtResource( 2 )
@@ -11,10 +14,26 @@ script = ExtResource( 2 )
 frames = ExtResource( 1 )
 animation = "stand_up"
 
-[node name="SearchRange" parent="." index="1"]
-visible = true
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 0, 38 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="SearchRange" index="0"]
+visible = false
 
 [node name="AttackRange" parent="." index="3"]
+visible = false
+
+[node name="Weapon" parent="." index="4"]
+visible = false
+
+[node name="Texture" parent="Weapon" index="0"]
+visible = false
+
+[node name="WeaponHitBox" parent="Weapon" index="1"]
+visible = false
+
+[node name="CollisionShape2D" parent="Weapon/WeaponHitBox" index="0"]
 visible = false
 
 [editable path="Weapon"]

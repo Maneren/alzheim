@@ -1,20 +1,34 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/enemies/animation/Slime.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://scripts/enemies/Slime.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=3]
 
+[sub_resource type="CircleShape2D" id=1]
+radius = 24.0208
+
 [node name="Slime" instance=ExtResource( 3 )]
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" parent="." index="0"]
+position = Vector2( 2, 0 )
 frames = ExtResource( 1 )
 animation = "run_up"
 
-[node name="SearchRange" parent="." index="1"]
-visible = true
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 0, 44 )
+shape = SubResource( 1 )
 
 [node name="AttackRange" parent="." index="3"]
+visible = false
+
+[node name="CollisionShape2D" parent="AttackRange" index="0"]
+visible = false
+
+[node name="Weapon" parent="." index="4"]
+visible = false
+
+[node name="Texture" parent="Weapon" index="0"]
 visible = false
 
 [editable path="Weapon"]
