@@ -60,6 +60,8 @@ func move_to_node(delta, player):
 
 	var normalized = looking_direction.normalized()
 
+	match_sprite_direction(normalized)
+
 	if normalized.x != 0 or normalized.y != 0:
 		direction = normalized
 
@@ -67,6 +69,29 @@ func move_to_node(delta, player):
 
 	if move_and_collide(movement):
 		pass
+
+
+func match_sprite_direction(vec: Vector2):
+	var dx = vec.x
+	var dy = vec.y
+
+	print(dx, dy)
+
+	if dx == 0 and dy == 0:
+		$AnimatedSprite.animation = $AnimatedSprite.animation.replace("run", "stand")
+	else:
+		if abs(dx) > abs(dy):
+			if dx > 0:
+				$AnimatedSprite.animation = "run_right"
+			else:
+				$AnimatedSprite.animation = "run_left"
+		else:
+			if dy > 0:
+				$AnimatedSprite.animation = "run_down"
+			else:
+				$AnimatedSprite.animation = "run_up"
+
+	print($AnimatedSprite.animation)
 
 
 func attack_tick(delta):

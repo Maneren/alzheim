@@ -12,7 +12,8 @@ script = ExtResource( 2 )
 
 [node name="AnimatedSprite" parent="." index="0"]
 frames = ExtResource( 1 )
-animation = "run_up"
+animation = "stand_down"
+playing = true
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 0, 29.5 )
@@ -20,6 +21,7 @@ shape = SubResource( 1 )
 
 [node name="CollisionShape2D" parent="SearchRange" index="0"]
 visible = false
+
 
 [node name="AttackRange" parent="." index="3"]
 visible = false

@@ -55,16 +55,16 @@ func _process(delta):
 
 func match_sprite_direction(dx: int, dy: int):
 	if dx == 0 and dy == 0:
-		$Texture.animation = $Texture.animation.replace("run", "stand")
+		$AnimatedSprite.animation = $AnimatedSprite.animation.replace("run", "stand")
 	else:
 		if dx == 1:
-			$Texture.animation = "run_right"
+			$AnimatedSprite.animation = "run_right"
 		elif dx == -1:
-			$Texture.animation = "run_left"
+			$AnimatedSprite.animation = "run_left"
 		elif dy == 1:
-			$Texture.animation = "run_down"
+			$AnimatedSprite.animation = "run_down"
 		elif dy == -1:
-			$Texture.animation = "run_up"
+			$AnimatedSprite.animation = "run_up"
 
 
 func attack_tick(delta):

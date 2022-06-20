@@ -17,7 +17,6 @@ radius = 80.0062
 [node name="Enemy" type="KinematicBody2D"]
 script = ExtResource( 3 )
 
-
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 4, 4 )
 frames = ExtResource( 2 )
