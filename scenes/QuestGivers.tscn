@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/textures/characters/NPC/Bard3.png" type="Texture" id=1]
 [ext_resource path="res://assets/textures/characters/NPC/Bard4.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://assets/textures/characters/NPC/Questgiver.png" type="Texture" id=4]
 [ext_resource path="res://assets/textures/characters/NPC/Questgiver2.png" type="Texture" id=5]
 [ext_resource path="res://assets/textures/characters/NPC/Bard.png" type="Texture" id=6]
+[ext_resource path="res://assets/textures/characters/NPC/Questgiver_Jungle.png" type="Texture" id=7]
+[ext_resource path="res://assets/textures/characters/NPC/Questgiver_Mountains.png" type="Texture" id=8]
 
 [node name="QuestGivers" type="Node2D"]
 z_index = 7
@@ -18,7 +20,7 @@ position = Vector2( 6464, 9024 )
 [node name="Sprite" type="Sprite" parent="NPC/NPC1"]
 position = Vector2( 0, -52 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 4 )
+texture = ExtResource( 7 )
 
 [node name="NPC2" type="Node2D" parent="NPC"]
 position = Vector2( 17600, 8768 )
@@ -26,7 +28,7 @@ position = Vector2( 17600, 8768 )
 [node name="Sprite" type="Sprite" parent="NPC/NPC2"]
 position = Vector2( 0, -100 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 5 )
+texture = ExtResource( 8 )
 
 [node name="NPC3" type="Node2D" parent="NPC"]
 position = Vector2( 6032, 19088 )

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/enemies/Ghost.gd" type="Script" id=2]
+[ext_resource path="res://assets/textures/items/weapons/Lightsword.png" type="Texture" id=3]
 
 [node name="Ghost" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -15,5 +16,8 @@ position = Vector2( 0, 22 )
 
 [node name="AttackRange" parent="." index="3"]
 visible = false
+
+[node name="Texture" parent="Weapon" index="0"]
+texture = ExtResource( 3 )
 
 [editable path="Weapon"]

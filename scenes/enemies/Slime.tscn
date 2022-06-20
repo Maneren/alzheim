@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/enemies/animation/Slime.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://scripts/enemies/Slime.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/textures/items/weapons/Slime Mace.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 23.0
@@ -28,9 +29,13 @@ visible = false
 visible = false
 
 [node name="Weapon" parent="." index="4"]
-visible = false
+position = Vector2( 1, 15.072 )
 
 [node name="Texture" parent="Weapon" index="0"]
-visible = false
+position = Vector2( -2, -7 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" parent="Weapon/WeaponHitBox" index="0"]
+position = Vector2( 0, 38 )
 
 [editable path="Weapon"]
