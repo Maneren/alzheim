@@ -16,6 +16,8 @@ z_index = 12
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 
+[node name="HUD" type="Node2D" parent="Player/Camera2D"]
+
 [node name="QuestGivers" parent="." instance=ExtResource( 3 )]
 
 [node name="Enemies" parent="." instance=ExtResource( 4 )]
