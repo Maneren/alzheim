@@ -9,9 +9,10 @@ script = ExtResource( 2 )
 
 [node name="AnimatedSprite" parent="." index="0"]
 frames = ExtResource( 1 )
-animation = "stand_up"
+animation = "stand_down"
+playing = true
 
-[node name="SearchRange" parent="." index="1"]
+[node name="SearchRange" parent="." index="2"]
 visible = true
 
 [node name="AttackRange" parent="." index="3"]
