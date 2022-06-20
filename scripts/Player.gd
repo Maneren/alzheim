@@ -1,4 +1,4 @@
-extends Node2D
+extends KinematicBody2D
 
 # Declare member variables here. Examples:
 const SPEED = 350
@@ -36,7 +36,10 @@ func _process(delta):
 	if dx != 0 or dy != 0:
 		self.direction = normalized
 
-	self.position += normalized * SPEED * delta
+	var movement = normalized * SPEED * delta
+
+	if move_and_collide(movement):
+		pass
 
 	attack_cooldown.tick(delta)
 	if Input.is_key_pressed(KEY_SPACE) and attack_cooldown.is_ready():

@@ -1,4 +1,4 @@
-extends Node2D
+extends KinematicBody2D
 signal killed(xp_reward, name)
 
 # Declare member variables here. Examples:
@@ -23,21 +23,17 @@ func _process(delta):
 
 	var moving_to_player = false
 
-	for node in $SearchRange.get_overlapping_areas():
-		if (
-			node.name == "HitBox"
-			and node.owner.name == "Player"
-			and (node.owner.position - get_parent().position).length() < 1000
-		):
-			move_to_node(delta, node.owner)
+	for node in $SearchRange.get_overlapping_bodies():
+		if node.name == "Player" and (node.position - get_parent().position).length() < 1000:
+			move_to_node(delta, node)
 			moving_to_player = true
 			break
 
 	if not moving_to_player:
 		move_to_node(delta / 2, get_parent())
 
-	for node in $AttackRange.get_overlapping_areas():
-		if node.name == "HitBox" and node.owner.name == "Player":
+	for node in $AttackRange.get_overlapping_bodies():
+		if node.name == "Player":
 			if attack_cooldown.is_ready():
 				print("Enemy attack!")
 				attacking = true
@@ -69,7 +65,8 @@ func move_to_node(delta, player):
 
 	var movement = normalized * SPEED * delta
 
-	position += movement
+	if move_and_collide(movement):
+		pass
 
 
 func attack_tick(delta):
@@ -90,5 +87,4 @@ func take_damage(damage):
 
 	if self.health <= 0:
 		emit_signal("killed", xp_reward, name)
-		breakpoint
 		queue_free()

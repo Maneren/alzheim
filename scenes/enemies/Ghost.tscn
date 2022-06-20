@@ -6,8 +6,8 @@
 [node name="Ghost" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="SearchRange" parent="." index="1"]
-visible = true
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2( 0, 16 )
 
 [node name="AttackRange" parent="." index="3"]
 visible = false

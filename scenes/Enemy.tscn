@@ -4,22 +4,26 @@
 [ext_resource path="res://scenes/enemies/animation/Enemy.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://scripts/Enemy.gd" type="Script" id=3]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 823.002
-
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 33.0
-height = 0.0
+radius = 19.0
+height = 30.0
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 600.0
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 80.0062
 
-[node name="Enemy" type="Node2D"]
+[node name="Enemy" type="KinematicBody2D"]
 script = ExtResource( 3 )
+
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 4, 4 )
 frames = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
 
 [node name="SearchRange" type="Area2D" parent="."]
 visible = false
@@ -27,17 +31,9 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SearchRange"]
 shape = SubResource( 1 )
 
-[node name="HitBox" type="Area2D" parent="."]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-shape = SubResource( 2 )
-
 [node name="AttackRange" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource( 3 )
 
 [node name="Weapon" parent="." instance=ExtResource( 1 )]
-
-[editable path="Weapon"]
