@@ -77,3 +77,11 @@ position = Vector2( 24128, 22288 )
 position = Vector2( 1, -58 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 6 )
+
+[node name="1stNPC" type="Node2D" parent="."]
+position = Vector2( 15332, 13230 )
+scale = Vector2( 4, 4 )
+
+[node name="Sprite" type="Sprite" parent="1stNPC"]
+position = Vector2( 0, -14.75 )
+texture = ExtResource( 4 )
