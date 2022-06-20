@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/enemies/animation/Imp.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://scripts/enemies/Imp.gd" type="Script" id=2]
+[ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=3]
+
+[node name="Imp" instance=ExtResource( 3 )]
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" parent="." index="0"]
+frames = ExtResource( 1 )
+animation = "stand_up"
+
+[node name="SearchRange" parent="." index="1"]
+visible = true
+
+[node name="AttackRange" parent="." index="3"]
+visible = false
+
+[editable path="Weapon"]
