@@ -11,11 +11,12 @@ extents = Vector2( 12, 26 )
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" parent="." index="0"]
+position = Vector2( 0, -20 )
 frames = ExtResource( 1 )
 animation = "stand_up"
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( 0, 38 )
+position = Vector2( 0, 18 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D" parent="SearchRange" index="0"]
