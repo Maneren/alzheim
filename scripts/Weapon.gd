@@ -1,14 +1,7 @@
 extends Node2D
 
 
-func _ready():
-	pass  # Replace with function body.
-
-
-func _on_WeaponHitBox_area_entered(area: Area2D):
-	if (
-		area.name == "HitBox"
-		and self.owner.name != area.owner.name
-		and self.owner.name.split("_")[0] != area.owner.name.split("_")[0]
-	):
-		area.owner.take_damage(self.owner.attack_damage)
+func _on_WeaponHitBox_body_entered(body):
+	print(self.owner.name, body.name, self.owner.name.split("_")[0], body.name.split("_")[0])
+	if self.owner.name != body.name and self.owner.name.split("_")[0] != body.name.split("_")[0]:
+		body.take_damage(self.owner.attack_damage)

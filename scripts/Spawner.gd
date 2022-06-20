@@ -11,7 +11,6 @@ func _ready():
 
 
 func _on_Enemy_killed(xp_reward, name):
-	breakpoint
 	emit_signal("enemy_killed", xp_reward, name)
 
 
