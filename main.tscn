@@ -1,9 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/tiles.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/QuestGivers.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Enemies.tscn" type="PackedScene" id=4]
 
 [node name="Node2D" type="Node2D"]
 
@@ -18,6 +18,6 @@ current = true
 
 [node name="QuestGivers" parent="." instance=ExtResource( 3 )]
 
-[node name="Enemy" parent="." instance=ExtResource( 4 )]
-position = Vector2( 14930, 1640 )
-z_index = 8
+[node name="Enemies" parent="." instance=ExtResource( 4 )]
+
+[connection signal="enemy_killed" from="Enemies" to="Player" method="_on_Enemies_enemy_killed"]

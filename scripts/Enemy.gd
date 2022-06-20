@@ -1,4 +1,5 @@
 extends Node2D
+signal killed(xp_reward, name)
 
 # Declare member variables here. Examples:
 const SPEED = 300
@@ -11,18 +12,29 @@ var weapon_rotation = 0
 
 onready var attack_cooldown = Cooldown.new(1.5)
 
-var health = 10
-var attack_damage = 10
+var xp_reward: int
+var health: int
+var attack_damage: int
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	attack_cooldown.tick(delta)
 
+	var moving_to_player = false
+
 	for node in $SearchRange.get_overlapping_areas():
-		if node.name == "HitBox" and node.owner.name == "Player":
-			move_to_player(delta, node.owner)
+		if (
+			node.name == "HitBox"
+			and node.owner.name == "Player"
+			and (node.owner.position - get_parent().position).length() < 1000
+		):
+			move_to_node(delta, node.owner)
+			moving_to_player = true
 			break
+
+	if not moving_to_player:
+		move_to_node(delta / 2, get_parent())
 
 	for node in $AttackRange.get_overlapping_areas():
 		if node.name == "HitBox" and node.owner.name == "Player":
@@ -39,8 +51,8 @@ func _process(delta):
 		$Weapon.visible = false
 
 
-func move_to_player(delta, player):
-	var looking_direction = player.position - position
+func move_to_node(delta, player):
+	var looking_direction = player.position - (get_parent().position + position)
 
 	# prevent jittery movement when close to the target
 	if abs(looking_direction.x) <= 1 and abs(looking_direction.y) <= 1:
@@ -77,4 +89,6 @@ func take_damage(damage):
 	self.health -= damage
 
 	if self.health <= 0:
-		self.owner.destroy()
+		emit_signal("killed", xp_reward, name)
+		breakpoint
+		queue_free()
