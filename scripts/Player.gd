@@ -10,6 +10,7 @@ var direction = Vector2(0, 0)
 var weapon_rotation = 0
 
 var health = 100
+var attack_damage = 2
 
 onready var attack_cooldown = Cooldown.new(1)
 
@@ -37,8 +38,6 @@ func _process(delta):
 
 	self.position += normalized * SPEED * delta
 
-	$AttackRange.rotation = self.direction.angle()
-
 	attack_cooldown.tick(delta)
 	if Input.is_key_pressed(KEY_SPACE) and attack_cooldown.is_ready():
 		print("Attack!")
@@ -46,14 +45,12 @@ func _process(delta):
 		$Weapon.visible = true
 
 	if attacking:
-		attack(delta)
+		attack_tick(delta)
 	else:
 		$Weapon.visible = false
 
 
 func match_sprite_direction(dx: int, dy: int):
-	print(dx, dy)
-
 	if dx == 0 and dy == 0:
 		$Texture.animation = $Texture.animation.replace("run", "stand")
 	else:
@@ -67,7 +64,7 @@ func match_sprite_direction(dx: int, dy: int):
 			$Texture.animation = "run_up"
 
 
-func attack(delta):
+func attack_tick(delta):
 	weapon_rotation += TAU * delta * 2
 
 	if weapon_rotation >= PI:
@@ -78,33 +75,10 @@ func attack(delta):
 
 	$Weapon.rotation = weapon_rotation + self.direction.angle()
 
-	for node in get_node("AttackRange").get_overlapping_areas():
-		if node.name == "EnemyArea":
-			node.owner.take_damage(1, self)
 
-
-func take_damage(damage, attacker):
+func take_damage(damage):
 	print("Take damage:", damage)
 	self.health -= damage
 
-	var pushback_direction = attacker.position - position
-
-	# prevent jittery movement when close to the target
-	if abs(pushback_direction.x) <= 1:
-		pushback_direction.x = 0
-
-	if abs(pushback_direction.y) <= 1:
-		pushback_direction.y = 0
-
-	var normalized = pushback_direction.normalized()
-
-	if normalized.x != 0 or normalized.y != 0:
-		direction = normalized
-
-	var pushback = normalized * 30
-
-	self.position -= pushback
-
 	if self.health <= 0:
-		print("Game ended!")
 		self.owner.destroy()
