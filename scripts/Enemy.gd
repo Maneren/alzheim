@@ -52,14 +52,15 @@ func move_to_node(delta, player):
 
 	# prevent jittery movement when close to the target
 	if abs(looking_direction.x) <= 1 and abs(looking_direction.y) <= 1:
+		looking_direction = Vector2(0, 0)
 		return
 
 	# keep distance from target
 	if looking_direction.length() < 90:
+		looking_direction = Vector2(0, 0)
 		return
 
 	var normalized = looking_direction.normalized()
-
 	match_sprite_direction(normalized)
 
 	if normalized.x != 0 or normalized.y != 0:

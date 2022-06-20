@@ -22,7 +22,6 @@ shape = SubResource( 1 )
 [node name="CollisionShape2D" parent="SearchRange" index="0"]
 visible = false
 
-
 [node name="AttackRange" parent="." index="3"]
 visible = false
 
