@@ -10,7 +10,7 @@ var direction = Vector2(0, 0)
 var weapon_rotation = 0
 
 var health = 100
-var attack_damage = 2
+var attack_damage = 10
 
 onready var attack_cooldown = Cooldown.new(1)
 
@@ -82,3 +82,12 @@ func take_damage(damage):
 
 	if self.health <= 0:
 		self.owner.destroy()
+
+
+var xp = 0
+
+
+func _on_Enemies_enemy_killed(xp_reward: int, name: String):
+	xp += xp_reward
+	print("Killed enemy:", name, "XP:", xp_reward)
+	print("Current XP:", xp)
