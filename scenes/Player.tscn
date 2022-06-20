@@ -11,22 +11,6 @@
 [ext_resource path="res://assets/textures/characters/player/Mainguy_RunDown.png" type="Texture" id=9]
 [ext_resource path="res://assets/textures/characters/player/Mainguy_StandUp.png" type="Texture" id=10]
 
-[sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 5 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 5 )
-region = Rect2( 64, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 5 )
-region = Rect2( 96, 0, 32, 32 )
-
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 32, 32 )
@@ -41,22 +25,6 @@ region = Rect2( 64, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 6 )
-region = Rect2( 96, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 9 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 9 )
-region = Rect2( 64, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 9 )
 region = Rect2( 96, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=15]
@@ -75,6 +43,38 @@ region = Rect2( 64, 0, 32, 32 )
 atlas = ExtResource( 8 )
 region = Rect2( 96, 0, 32, 32 )
 
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 9 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 9 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 9 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 5 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 5 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 5 )
+region = Rect2( 96, 0, 32, 32 )
+
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 10 ) ],
@@ -82,19 +82,9 @@ animations = [ {
 "name": "stand_up",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "run_up",
-"speed": 4.0
-}, {
-"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
-"loop": true,
-"name": "run_right",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "stand_down",
+"name": "stand_left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
@@ -102,27 +92,36 @@ animations = [ {
 "name": "stand_right",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
-"name": "run_down",
+"name": "run_right",
 "speed": 4.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "stand_left",
-"speed": 5.0
 }, {
 "frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
 "loop": true,
 "name": "run_left",
 "speed": 4.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "stand_down",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "run_down",
+"speed": 4.0
+}, {
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"loop": true,
+"name": "run_up",
+"speed": 4.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 32.0
-height = 52.0
+[sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 16, 34 )
 
-[node name="Player" type="Node2D"]
+[node name="KinematicBody2D" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
 [node name="Texture" type="AnimatedSprite" parent="."]
@@ -131,10 +130,8 @@ frames = SubResource( 2 )
 animation = "stand_down"
 playing = true
 
-[node name="HitBox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2( 0, 7 )
-shape = SubResource( 1 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 30 )
+shape = SubResource( 19 )
 
 [node name="Weapon" parent="." instance=ExtResource( 3 )]

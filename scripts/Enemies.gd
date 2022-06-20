@@ -4,7 +4,6 @@ signal enemy_killed(xp_reward, name)
 
 
 func _on_Spawner_enemy_killed(xp_reward, name):
-	breakpoint
 	emit_signal("enemy_killed", xp_reward, name)
 
 
