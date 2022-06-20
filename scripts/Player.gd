@@ -15,6 +15,14 @@ var attack_damage = 10
 
 onready var attack_cooldown = Cooldown.new(1)
 
+var active_npc_quests = {}
+var active_bard_quests = {}
+
+var quest_counter = 0
+
+var finished_npc_quests = []
+var finished_bard_quests = []
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -46,7 +54,6 @@ func _process(delta):
 
 	attack_cooldown.tick(delta)
 	if Input.is_key_pressed(KEY_SPACE) and attack_cooldown.is_ready():
-		print("Attack!")
 		attacking = true
 		$Weapon.visible = true
 
@@ -77,7 +84,6 @@ func attack_tick(delta):
 		weapon_rotation = 0
 		$Weapon.visible = false
 		attacking = false
-		print("Done!")
 
 	$Weapon.rotation = weapon_rotation + self.direction.angle()
 
@@ -87,7 +93,27 @@ func take_damage(damage):
 	self.health -= damage
 
 	if self.health <= 0:
-		self.owner.destroy()
+		die()
+
+
+func die():
+	var taverns = [
+		Vector2(53, 68) * 128,
+		Vector2(137, 68) * 128,
+		Vector2(40, 147) * 128,
+		Vector2(159, 157) * 128
+	]
+
+	var closest
+	var closest_distance = 100000000
+
+	for tavern in taverns:
+		var dist = tavern - self.position
+		if dist < closest_distance:
+			closest = tavern
+			closest_distance = dist
+
+	self.position = closest
 
 
 var xp = 0
@@ -97,3 +123,37 @@ func _on_Enemies_enemy_killed(xp_reward: int, name: String):
 	xp += xp_reward
 	print("Killed enemy:", name, "XP:", xp_reward)
 	print("Current XP:", xp)
+
+	for id in active_npc_quests:
+		var quest = active_npc_quests[id]
+
+		if name.begins_with(id):
+			self.quest_counter += 1
+			if self.quest_counter >= quest.amount:
+				print("Quest complete:", id)
+				self.xp += quest.xp
+				self.finished_npc_quests.append(quest.id)
+				self.active_npc_quests[id] = null
+
+			print(self.quest_counter, "of", quest.amount, "enemies killed")
+		break
+
+
+func _input(event: InputEvent):
+	if event is InputEventKey and event.pressed and event.scancode == KEY_E:
+		for node in $InteractionArea.get_overlapping_areas():
+			var npc = node.owner
+
+			if npc.name.begins_with("NPC"):
+				print("Talk to NPC")
+
+				if npc.active_quest in self.active_npc_quests.keys():
+					print("Already talked to this NPC")
+				else:
+					var quest = npc.try_get_quest()
+					if quest:
+						self.active_npc_quests[quest.id] = quest.data
+					else:
+						print("No quest available")
+
+				break

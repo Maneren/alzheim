@@ -76,8 +76,6 @@ func match_sprite_direction(vec: Vector2):
 	var dx = vec.x
 	var dy = vec.y
 
-	print(dx, dy)
-
 	if dx == 0 and dy == 0:
 		$AnimatedSprite.animation = $AnimatedSprite.animation.replace("run", "stand")
 	else:
@@ -91,8 +89,6 @@ func match_sprite_direction(vec: Vector2):
 				$AnimatedSprite.animation = "run_down"
 			else:
 				$AnimatedSprite.animation = "run_up"
-
-	print($AnimatedSprite.animation)
 
 
 func attack_tick(delta):
@@ -112,5 +108,6 @@ func take_damage(damage):
 	self.health -= damage
 
 	if self.health <= 0:
+		print("enemy_killed")
 		emit_signal("killed", xp_reward, name)
 		queue_free()

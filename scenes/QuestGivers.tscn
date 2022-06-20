@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/textures/characters/NPC/Bard3.png" type="Texture" id=1]
 [ext_resource path="res://assets/textures/characters/NPC/Bard4.png" type="Texture" id=2]
@@ -8,41 +8,43 @@
 [ext_resource path="res://assets/textures/characters/NPC/Bard.png" type="Texture" id=6]
 [ext_resource path="res://assets/textures/characters/NPC/Questgiver_Jungle.png" type="Texture" id=7]
 [ext_resource path="res://assets/textures/characters/NPC/Questgiver_Mountains.png" type="Texture" id=8]
+[ext_resource path="res://NPC.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scripts/QuestGivers.gd" type="Script" id=10]
 
 [node name="QuestGivers" type="Node2D"]
 z_index = 7
+script = ExtResource( 10 )
 
 [node name="NPC" type="Node2D" parent="."]
 
-[node name="NPC1" type="Node2D" parent="NPC"]
+[node name="NPC1" parent="NPC" instance=ExtResource( 9 )]
 position = Vector2( 6464, 9024 )
+quests = [ "ghost-town" ]
 
 [node name="Sprite" type="Sprite" parent="NPC/NPC1"]
-position = Vector2( 0, -52 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 7 )
 
-[node name="NPC2" type="Node2D" parent="NPC"]
+[node name="NPC2" parent="NPC" instance=ExtResource( 9 )]
 position = Vector2( 17600, 8768 )
+quests = [ "fishing-spot" ]
 
 [node name="Sprite" type="Sprite" parent="NPC/NPC2"]
-position = Vector2( 0, -100 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 8 )
 
-[node name="NPC3" type="Node2D" parent="NPC"]
+[node name="NPC3" parent="NPC" instance=ExtResource( 9 )]
 position = Vector2( 6032, 19088 )
 
 [node name="Sprite" type="Sprite" parent="NPC/NPC3"]
-position = Vector2( 0, -56 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 5 )
 
-[node name="NPC4" type="Node2D" parent="NPC"]
+[node name="NPC4" parent="NPC" instance=ExtResource( 9 )]
 position = Vector2( 20496, 20240 )
 
 [node name="Sprite" type="Sprite" parent="NPC/NPC4"]
-position = Vector2( 1, -60 )
+position = Vector2( 8432, -17936 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 4 )
 
