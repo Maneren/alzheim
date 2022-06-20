@@ -10,7 +10,7 @@
 [node name="Tiles" parent="." instance=ExtResource( 2 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 19968, 12800 )
+position = Vector2( 18399, 8800 )
 z_index = 12
 
 [node name="Camera2D" type="Camera2D" parent="Player"]

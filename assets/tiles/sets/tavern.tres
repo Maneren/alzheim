@@ -7,19 +7,19 @@
 [ext_resource path="res://assets/tiles/Tavern/Tavern/Tavern_Mountain.png" type="Texture" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 96, 64, 0, 64, 0, 0, 96, 0 )
+points = PoolVector2Array( 96, 64, 0, 64, 0, 32, 96, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
-points = PoolVector2Array( 96, 64, 0, 64, 0, 0, 96, 0 )
+points = PoolVector2Array( 96, 64, 0, 64, 0, 32, 96, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
 points = PoolVector2Array( 19.4748, 20.6861, 12.207, 20.1477, 12.4762, 11.9378, 20.8206, 12.4762 )
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
-points = PoolVector2Array( 96, 64, 0, 64, 0, 0, 96, 0 )
+points = PoolVector2Array( 96, 64, 0, 64, 0, 32, 96, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
-points = PoolVector2Array( 96, 64, 0, 64, 0, 0, 96, 0 )
+points = PoolVector2Array( 96, 64, 0, 64, 0, 32, 96, 32 )
 
 [resource]
 0/name = "Tavern_Desert.png 0"

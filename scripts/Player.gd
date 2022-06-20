@@ -9,6 +9,7 @@ var attacking = false
 var direction = Vector2(0, 0)
 var weapon_rotation = 0
 
+var max_health = 100
 var health = 100
 var attack_damage = 10
 
@@ -38,8 +39,10 @@ func _process(delta):
 
 	var movement = normalized * SPEED * delta
 
-	if move_and_collide(movement):
-		pass
+	var collision = move_and_collide(movement)
+
+	if collision and collision.collider.name == "StaticBodyTavern":
+		health = min(health + 10, max_health)
 
 	attack_cooldown.tick(delta)
 	if Input.is_key_pressed(KEY_SPACE) and attack_cooldown.is_ready():
