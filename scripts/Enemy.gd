@@ -112,6 +112,7 @@ func attack_tick(delta):
 func take_damage(damage, name):
 	print("Enemy takes damage", damage, "from", name)
 	self.health -= damage
+	$EnemyHurt.play()
 
 	if self.health <= 0:
 		emit_signal("killed", xp_reward, name)

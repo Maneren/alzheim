@@ -14,15 +14,17 @@ script = ExtResource( 7 )
 [node name="Tiles" parent="." instance=ExtResource( 2 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 22841, 5645 )
+position = Vector2( 7551, 1582 )
 z_index = 12
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 visible = false
+position = Vector2( 3, -3 )
 current = true
 
 [node name="HUD" parent="Player/Camera2D" instance=ExtResource( 5 )]
-position = Vector2( -452, -262 )
+visible = false
+position = Vector2( -636, -359 )
 
 [node name="Minimap" parent="Player/Camera2D/HUD" instance=ExtResource( 6 )]
 visible = false
