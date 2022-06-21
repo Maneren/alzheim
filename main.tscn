@@ -14,7 +14,7 @@ script = ExtResource( 7 )
 [node name="Tiles" parent="." instance=ExtResource( 2 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 9775, 15737 )
+position = Vector2( 9588, 15327 )
 z_index = 12
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
