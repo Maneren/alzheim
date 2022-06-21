@@ -77,13 +77,7 @@ region = Rect2( 96, 0, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "stand_up",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
-
 "loop": true,
 "name": "run_left",
 "speed": 4.0
@@ -117,6 +111,11 @@ animations = [ {
 "loop": true,
 "name": "run_right",
 "speed": 4.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "stand_up",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=19]
@@ -145,7 +144,6 @@ shape = SubResource( 19 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource( 20 )
 
-
 [node name="PlayerRun" type="AudioStreamPlayer2D" parent="."]
 
 [node name="PlayerAttack" type="AudioStreamPlayer2D" parent="."]
@@ -153,4 +151,3 @@ shape = SubResource( 20 )
 [node name="PlayerHurt" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="area_shape_entered" from="InteractionArea" to="." method="_on_InteractionArea_area_shape_entered"]
-
