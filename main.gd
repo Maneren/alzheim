@@ -1,8 +1,23 @@
 extends Node2D
 
+onready var viewport = get_viewport()
+
+var base = 0.88
+var scl
+var resolution = 720
+
 
 func _ready():
+	viewport.connect("size_changed", self, "window_resize")
+	window_resize()
+
 	load_game()
+
+
+func window_resize():
+	scl = base * (OS.window_size.y / resolution)
+	self.scale.x = scl
+	self.scale.y = scl
 
 
 func _input(event):
