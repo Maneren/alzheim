@@ -4,17 +4,26 @@ signal village_entered(name)
 
 # Declare member variables here. Examples:
 const SPEED = 350
-
+onready var MINIMAP = get_node("Camera2D/HUD/Minimap")
 const Cooldown = preload("res://lib/Cooldown.gd")
+const WEAPONS = [
+	preload("res://assets/textures/items/weapons/Blunt_Sword.png"),
+	preload("res://assets/textures/items/weapons/Knife.png"),
+	preload("res://assets/textures/items/weapons/Axe.png"),
+	preload("res://assets/textures/items/weapons/Saber.png"),
+	preload("res://assets/textures/items/weapons/Longsword.png"),
+	preload("res://assets/textures/items/weapons/Blacksaber.png"),
+]
 
 var attacking = false
 var direction = Vector2(0, 0)
 var weapon_rotation = 0
 
-var max_health = 100
-var health = 100
 var xp = 0
+var health = 100
+var weapon_idx = 0
 
+var max_health = 100
 var attack_damage = 10
 
 onready var attack_cooldown = Cooldown.new(1)
@@ -33,6 +42,7 @@ onready var QUEST_LABEL = get_node("/root/Game/Player/Camera2D/HUD/quest")
 
 
 func _ready():
+	check_levelup()
 	HP_LABEL.text = str(health)
 	XP_LABEL.text = str(xp)
 
@@ -45,6 +55,7 @@ func set_health(new_health: int):
 func set_xp(new_xp: int):
 	self.xp = new_xp
 	XP_LABEL.text = str(xp)
+	check_levelup()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -190,6 +201,8 @@ func _input(event: InputEvent):
 			QUEST_LABEL.text = ""
 		elif event.scancode == KEY_E:
 			get_quest()
+		elif event.scancode == KEY_HOME:
+			set_xp(xp + 100)  # TODO: remove this
 
 
 func get_quest():
@@ -265,3 +278,49 @@ func load_save_data(data):
 func _on_InteractionArea_area_shape_entered(_area_rid, area, _area_shape_index, _local_shape_index):
 	if area.get_parent().name == "Villages":
 		emit_signal("village_entered", area.name)
+
+
+func check_levelup():
+	weapon_idx = 0
+	var potion_strength = 0
+	var armor_strength = 0
+
+	if xp >= 100:
+		armor_strength = 1
+
+	if xp >= 200:
+		weapon_idx = 1
+
+	if xp >= 300:
+		potion_strength = 1
+
+	if xp >= 400:
+		weapon_idx = 2
+
+	if xp >= 500:
+		armor_strength = 2
+
+	if xp >= 600:
+		potion_strength = 2
+
+	if xp >= 700:
+		weapon_idx = 3
+
+	if xp >= 800:
+		armor_strength = 3
+
+	if xp >= 900:
+		armor_strength = 3
+
+	if xp >= 1000:
+		weapon_idx = 4
+
+	if xp >= 2000:
+		weapon_idx = 5
+
+	$Weapon/Texture.texture = WEAPONS[weapon_idx]
+
+	max_health = 100 + armor_strength * 100
+	attack_damage = 10 + weapon_idx * 5
+	MINIMAP.forget_time = 240 + potion_strength * 120
+	MINIMAP.update_forget_time()

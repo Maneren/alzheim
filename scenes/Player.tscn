@@ -119,6 +119,11 @@ animations = [ {
 "loop": true,
 "name": "run_right",
 "speed": 4.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "stand_up",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=19]
