@@ -85,6 +85,11 @@ animations = [ {
 "name": "run_left",
 "speed": 4.0
 }, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "stand_left",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
 "loop": true,
 "name": "run_down",
@@ -93,11 +98,6 @@ animations = [ {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "stand_right",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "stand_left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 1 ) ],
@@ -109,11 +109,6 @@ animations = [ {
 "loop": true,
 "name": "run_up",
 "speed": 4.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "stand_up",
-"speed": 5.0
 }, {
 "frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,

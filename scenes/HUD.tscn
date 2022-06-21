@@ -42,9 +42,6 @@ margin_right = -111.0
 margin_bottom = 336.5
 align = 2
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="quest" type="Label" parent="."]
 margin_left = 46.0
