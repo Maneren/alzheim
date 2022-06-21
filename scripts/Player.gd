@@ -220,6 +220,8 @@ func _input(event: InputEvent):
 			something_shown = false
 		elif event.scancode == KEY_E:
 			get_quest()
+		elif event.scancode == KEY_HOME:
+			set_xp(xp + 100)
 		elif event.scancode == KEY_END:
 			die()
 

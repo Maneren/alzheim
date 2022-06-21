@@ -115,5 +115,5 @@ func take_damage(damage, name):
 	$EnemyHurt.play()
 
 	if self.health <= 0:
-		emit_signal("killed", xp_reward, name)
+		emit_signal("killed", xp_reward, self.name)
 		queue_free()
