@@ -48,7 +48,7 @@ onready var HP_LABEL = HUD.get_node("HP")
 onready var XP_LABEL = HUD.get_node("XP")
 onready var QUEST_LABEL = HUD.get_node("quest")
 
-var something_shown = false
+var something_shown = true
 
 
 func _ready():
