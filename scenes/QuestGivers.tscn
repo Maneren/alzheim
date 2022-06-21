@@ -51,18 +51,19 @@ texture = ExtResource( 4 )
 [node name="Musicians" type="Node2D" parent="."]
 
 [node name="Musician1" parent="Musicians" instance=ExtResource( 11 )]
+position = Vector2( 7958, 825 )
 quest = "islands"
 
 [node name="Sprite" type="Sprite" parent="Musicians/Musician1"]
-position = Vector2( 9860, 3150 )
+position = Vector2( 1, -1 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 2 )
 
 [node name="Musician2" type="Node2D" parent="Musicians"]
-position = Vector2( 17856, 4032 )
+position = Vector2( 18391, 4134 )
 
 [node name="Sprite" type="Sprite" parent="Musicians/Musician2"]
-position = Vector2( 0, -58 )
+position = Vector2( 1, -55 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 1 )
 

@@ -9,36 +9,20 @@
 [ext_resource path="res://assets/textures/characters/enemies/Slime/Slime_StandUp.png" type="Texture" id=7]
 [ext_resource path="res://assets/textures/characters/enemies/Slime/Slime_StandLeft.png" type="Texture" id=8]
 
-[sub_resource type="AtlasTexture" id=29]
-atlas = ExtResource( 1 )
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=30]
-atlas = ExtResource( 1 )
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 4 )
 region = Rect2( 32, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=31]
-atlas = ExtResource( 1 )
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 4 )
 region = Rect2( 64, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 1 )
-region = Rect2( 96, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 5 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=27]
-atlas = ExtResource( 5 )
-region = Rect2( 64, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=28]
-atlas = ExtResource( 5 )
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 4 )
 region = Rect2( 96, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=29]
@@ -73,53 +57,28 @@ region = Rect2( 64, 0, 32, 32 )
 atlas = ExtResource( 6 )
 region = Rect2( 96, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 4 )
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=34]
-atlas = ExtResource( 4 )
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 5 )
 region = Rect2( 32, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=35]
-atlas = ExtResource( 4 )
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 5 )
 region = Rect2( 64, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=36]
-atlas = ExtResource( 4 )
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 5 )
 region = Rect2( 96, 0, 32, 32 )
 
 [resource]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "stand_down",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "stand_right",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
-"loop": true,
-"name": "run_right",
-"speed": 4.0
-}, {
-"frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
-"loop": true,
-"name": "run_down",
-"speed": 4.0
-}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "stand_up",
 "speed": 5.0
-}, {
-"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
-"loop": true,
-"name": "run_up",
-"speed": 4.0
 }, {
 "frames": [ SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ) ],
 "loop": true,
@@ -130,4 +89,29 @@ animations = [ {
 "loop": true,
 "name": "stand_left",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
+"loop": true,
+"name": "run_down",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "stand_right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "stand_down",
+"speed": 4.0
+}, {
+"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
+"loop": true,
+"name": "run_up",
+"speed": 4.0
+}, {
+"frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
+"loop": true,
+"name": "run_right",
+"speed": 4.0
 } ]

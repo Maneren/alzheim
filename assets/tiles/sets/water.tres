@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=35 format=2]
+[gd_resource type="TileSet" load_steps=37 format=2]
 
 [ext_resource path="res://assets/tiles/Water/Water12.png" type="Texture" id=1]
 [ext_resource path="res://assets/tiles/Water/Water7.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://assets/tiles/decoration/Stones.png" type="Texture" id=15]
 [ext_resource path="res://assets/tiles/decoration/Cacti.png" type="Texture" id=16]
 [ext_resource path="res://assets/tiles/decoration/Cactus.png" type="Texture" id=17]
+[ext_resource path="res://assets/tiles/Cave/CaveStoneThing.png" type="Texture" id=18]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 32, 32, 10.7265, 32, 10.5919, 10.5919, 32, 10.7265 )
@@ -44,6 +45,9 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
 points = PoolVector2Array( 64, 32, 0, 30, 0, 11, 64, 11 )
+
+[sub_resource type="ConvexPolygonShape2D" id=32]
+points = PoolVector2Array( 6.74489, 32, 17.1267, 1.05164, 29.1831, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=21]
 points = PoolVector2Array( 21.4936, 32, 0, 32, 0, 10.4069, 21.2244, 10.6761 )
@@ -427,3 +431,24 @@ points = PoolVector2Array( 0, 0, 0, 0, 31.8568, 0, 32, 32, 11.9378, 32, 9.51525,
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 16/z_index = 0
+17/name = "CaveStoneThing.png 17"
+17/texture = ExtResource( 18 )
+17/tex_offset = Vector2( 0, 0 )
+17/modulate = Color( 1, 1, 1, 1 )
+17/region = Rect2( 0, 0, 32, 32 )
+17/tile_mode = 0
+17/occluder_offset = Vector2( 0, 0 )
+17/navigation_offset = Vector2( 0, 0 )
+17/shape_offset = Vector2( 0, 0 )
+17/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+17/shape = SubResource( 32 )
+17/shape_one_way = false
+17/shape_one_way_margin = 1.0
+17/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 32 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+17/z_index = 0
