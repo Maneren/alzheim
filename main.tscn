@@ -16,6 +16,7 @@ z_index = 12
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
+zoom = Vector2( 0.88, 0.88 )
 
 [node name="HUD" parent="Player/Camera2D" instance=ExtResource( 5 )]
 
