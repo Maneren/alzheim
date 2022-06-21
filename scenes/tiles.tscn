@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://assets/tiles/sets/all.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/tiles/sets/water.tres" type="TileSet" id=2]
@@ -271,7 +271,6 @@ position = Vector2( 24050, 22165 )
 position = Vector2( 107, -190 )
 shape = SubResource( 15 )
 
-
 [node name="Lamps" type="Node2D" parent="."]
 position = Vector2( 23168, 1534 )
 scale = Vector2( 4, 4 )
@@ -384,4 +383,3 @@ color = Color( 1, 0.584314, 0, 1 )
 
 [connection signal="area_shape_entered" from="Door/Area2D" to="Door/KinematicBody2D" method="_on_Area2D_area_shape_entered"]
 [connection signal="area_shape_exited" from="Door/Area2D" to="Door/KinematicBody2D" method="_on_Area2D_area_shape_exited"]
-

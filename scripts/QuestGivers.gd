@@ -17,7 +17,7 @@ var available_quests = {
 		"xp": 50,
 		"coords": [109, 47],
 		"description":
-		"Oh, Hero, I need your help. A bunch of imps has overrun my fishing spot! It is the best fishing spot in this whole region. I don't know why they would do this, because as far as I recall, those little bastards don't even eat fish! Oh, they drive me mad!\n\nI need you to go up the north, until you bump into a first crossing, then hit the road to the west, it is going to take you to the bridge, where I used to fish."
+		"Oh, Hero, I need your help. A bunch of slimes has overrun my fishing spot! It is the best fishing spot in this whole region. I don't know why they would do this, because as far as I recall, those little bastards don't even eat fish! Oh, they drive me mad!\n\nI need you to go up the north, until you bump into a first crossing, then hit the road to the west, it is going to take you to the bridge, where I used to fish."
 	},
 	"raided-village":
 	{
