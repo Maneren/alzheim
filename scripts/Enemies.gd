@@ -11,4 +11,3 @@ func _ready():
 	for child in get_children():
 		if child.name.begins_with("Spawner"):
 			child.connect("enemy_killed", self, "_on_Spawner_enemy_killed")
-			print("Connected to Spawner")
