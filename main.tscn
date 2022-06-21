@@ -31,7 +31,7 @@ scale = Vector2( 0.5, 0.5 )
 forget_time = 240
 
 [node name="QuestGivers" parent="." instance=ExtResource( 3 )]
-position = Vector2( 15, -68 )
+position = Vector2( 46, -27 )
 
 [node name="Enemies" parent="." instance=ExtResource( 4 )]
 

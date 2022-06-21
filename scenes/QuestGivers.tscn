@@ -37,7 +37,8 @@ scale = Vector2( 4, 4 )
 texture = ExtResource( 8 )
 
 [node name="NPC3" parent="NPC" instance=ExtResource( 9 )]
-position = Vector2( 4880, 19088 )
+position = Vector2( 4865.91, 19088 )
+quests = [ "raided-village" ]
 
 [node name="Sprite" type="Sprite" parent="NPC/NPC3"]
 scale = Vector2( 4, 4 )
@@ -45,6 +46,7 @@ texture = ExtResource( 5 )
 
 [node name="NPC4" parent="NPC" instance=ExtResource( 9 )]
 position = Vector2( 20496, 20240 )
+quests = [ "playground" ]
 
 [node name="Sprite" type="Sprite" parent="NPC/NPC4"]
 scale = Vector2( 4, 4 )
@@ -61,11 +63,12 @@ position = Vector2( 1, -1 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 2 )
 
-[node name="Musician2" type="Node2D" parent="Musicians"]
-position = Vector2( 18391, 4134 )
+[node name="Musician2" parent="Musicians" instance=ExtResource( 11 )]
+position = Vector2( 17779, 3970 )
+quest = "Stolen-tuba"
 
 [node name="Sprite" type="Sprite" parent="Musicians/Musician2"]
-position = Vector2( 1, -55 )
+position = Vector2( 9822, 3090 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 1 )
 
@@ -77,11 +80,12 @@ quest = "oasis"
 scale = Vector2( 4, 4 )
 texture = ExtResource( 3 )
 
-[node name="Musician4" type="Node2D" parent="Musicians"]
+[node name="Musician5" parent="Musicians" instance=ExtResource( 11 )]
 position = Vector2( 24128, 22288 )
+quest = "Monster-by-the-river"
 
-[node name="Sprite" type="Sprite" parent="Musicians/Musician4"]
-position = Vector2( 1, -58 )
+[node name="Sprite" type="Sprite" parent="Musicians/Musician5"]
+position = Vector2( 14593, 6294 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 6 )
 
