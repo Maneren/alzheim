@@ -65,7 +65,7 @@ texture = ExtResource( 2 )
 
 [node name="Musician2" parent="Musicians" instance=ExtResource( 11 )]
 position = Vector2( 17779, 3970 )
-quest = "Stolen-tuba"
+quest = "stolen-tuba"
 
 [node name="Sprite" type="Sprite" parent="Musicians/Musician2"]
 position = Vector2( 9822, 3090 )
@@ -80,11 +80,11 @@ quest = "oasis"
 scale = Vector2( 4, 4 )
 texture = ExtResource( 3 )
 
-[node name="Musician5" parent="Musicians" instance=ExtResource( 11 )]
+[node name="Musician4" parent="Musicians" instance=ExtResource( 11 )]
 position = Vector2( 24128, 22288 )
-quest = "Monster-by-the-river"
+quest = "monster-by-the-river"
 
-[node name="Sprite" type="Sprite" parent="Musicians/Musician5"]
+[node name="Sprite" type="Sprite" parent="Musicians/Musician4"]
 position = Vector2( 14593, 6294 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 6 )
