@@ -272,7 +272,7 @@ frame = 1
 playing = true
 
 [node name="Light2D" type="Light2D" parent="Lamps/AnimatedSprite"]
-position = Vector2( -0.875, -0.5 )
+position = Vector2( -2.5, -0.75 )
 texture = ExtResource( 9 )
 color = Color( 1, 0.584314, 0, 1 )
 
@@ -283,7 +283,7 @@ frames = ExtResource( 8 )
 playing = true
 
 [node name="Light2D5" type="Light2D" parent="Lamps/AnimatedSprite2"]
-position = Vector2( 1, 0.25 )
+position = Vector2( -0.25, -1.875 )
 texture = ExtResource( 9 )
 color = Color( 1, 0.584314, 0, 1 )
 
