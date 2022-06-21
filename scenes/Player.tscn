@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://assets/textures/characters/player/Mainguy_StandDown.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://assets/textures/characters/player/Mainguy_RunLeft.png" type="Texture" id=8]
 [ext_resource path="res://assets/textures/characters/player/Mainguy_RunDown.png" type="Texture" id=9]
 [ext_resource path="res://assets/textures/characters/player/Mainguy_StandUp.png" type="Texture" id=10]
+[ext_resource path="res://assets/audio/Sword Whoosh.mp3" type="AudioStream" id=11]
+[ext_resource path="res://assets/audio/Footsteps.mp3" type="AudioStream" id=12]
+[ext_resource path="res://assets/audio/fist-punch-or-kick-7171.mp3" type="AudioStream" id=13]
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 8 )
@@ -82,11 +85,6 @@ animations = [ {
 "name": "run_left",
 "speed": 4.0
 }, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "stand_left",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
 "loop": true,
 "name": "run_down",
@@ -95,6 +93,11 @@ animations = [ {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "stand_right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "stand_left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 1 ) ],
@@ -106,6 +109,11 @@ animations = [ {
 "loop": true,
 "name": "run_up",
 "speed": 4.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "stand_up",
+"speed": 5.0
 }, {
 "frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
@@ -145,9 +153,15 @@ shape = SubResource( 19 )
 shape = SubResource( 20 )
 
 [node name="PlayerRun" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
+volume_db = -5.0
 
 [node name="PlayerAttack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 11 )
+volume_db = -12.0
 
 [node name="PlayerHurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 13 )
+volume_db = -8.0
 
 [connection signal="area_shape_entered" from="InteractionArea" to="." method="_on_InteractionArea_area_shape_entered"]

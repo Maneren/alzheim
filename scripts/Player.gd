@@ -91,6 +91,7 @@ func _process(delta):
 	attack_cooldown.tick(delta)
 	if Input.is_key_pressed(KEY_SPACE) and attack_cooldown.is_ready():
 		attacking = true
+		$PlayerAttack.play()
 		$Weapon.visible = true
 
 	if attacking:
@@ -101,8 +102,10 @@ func _process(delta):
 
 func match_sprite_direction(dx: int, dy: int):
 	if dx == 0 and dy == 0:
+		#$PlayerRun.stop()
 		$AnimatedSprite.animation = $AnimatedSprite.animation.replace("run", "stand")
 	else:
+		#$PlayerRun.play()
 		if dx == 1:
 			$AnimatedSprite.animation = "run_right"
 		elif dx == -1:
@@ -127,6 +130,7 @@ func attack_tick(delta):
 func take_damage(damage, name):
 	print("Player takes damage:", damage, "from", name)
 	set_health(health - damage)
+	$PlayerHurt.play()
 
 	if self.health <= 0:
 		die()

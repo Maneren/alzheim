@@ -21,7 +21,8 @@ z_index = 12
 current = true
 
 [node name="HUD" parent="Player/Camera2D" instance=ExtResource( 5 )]
-position = Vector2( -452, -262 )
+visible = false
+position = Vector2( -636, -359 )
 
 [node name="Minimap" parent="Player/Camera2D/HUD" instance=ExtResource( 6 )]
 visible = false

@@ -75,19 +75,9 @@ region = Rect2( 96, 0, 32, 32 )
 
 [resource]
 animations = [ {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "stand_up",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ) ],
 "loop": true,
 "name": "run_left",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "stand_left",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
@@ -100,6 +90,11 @@ animations = [ {
 "name": "stand_right",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "stand_left",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "stand_down",
@@ -109,6 +104,11 @@ animations = [ {
 "loop": true,
 "name": "run_up",
 "speed": 4.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "stand_up",
+"speed": 5.0
 }, {
 "frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
 "loop": true,
