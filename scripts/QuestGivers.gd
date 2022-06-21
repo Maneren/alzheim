@@ -1,6 +1,6 @@
 extends Node2D
 
-var available_npc_quests = {
+var available_quests = {
 	"ghost-town":
 	{
 		"target": "Ghost",
@@ -36,11 +36,7 @@ var available_npc_quests = {
 		"coords": [126, 166],
 		"description":
 		"Oh glad to see a Hero! You are just the man I need. You see there are a bunch of bone boys nearby. I wouldn't mind them if they wouldn't make their creepy xylophone stuff. It's spooky and scary and I would like you to if you get rid of them.\n\nIf you go to the west end of the town, then take the road south. The road starts to go west and you should keep following it. Then there is a crossing you should go a little further north. Then you're gonna see their meeting patch."
-	}
-}
-var active_npc_quests = []
-
-var available_bard_quests = {
+	},
 	"islands":
 	{
 		"target": "Imp",
@@ -78,6 +74,7 @@ var available_bard_quests = {
 		"Roses are red, violets are blue… …Nah that's bad. Oh, you came just in time. Please tell me of your adventures Hero! Wait no, probably someone already wrote a song about that. Aha, I have an idea! Yes, but first I need to make you familiar with my story. So right now I am little low on the muse, so I need a good story to spark the creativity in me. And you can give me that! So I need you to slay a beast and then tell the story to me. Easy as that.\n\nI heard there is a one good, if you head on the north road from here, on crossing make your way west through the town with that lovely tavern. Still on the west road until you find a river. Then cross it on the bridge and take it south by the river. Soon or later you gonna bump right into it. "
 	}
 }
+var active_npc_quests = []
 var active_bard_quests = []
 
 const spawner_template = preload("res://scenes/SingleSpawner.tscn")
@@ -85,10 +82,11 @@ onready var enemies_node = get_node("/root/Game/Enemies")
 
 
 func start_npc_quest(id: String):
-	var quest = available_npc_quests[id]
+	var quest = available_quests[id]
 
 	var spawner = spawner_template.instance()
 
+	spawner.name = "quest:" + id
 	spawner.max_enemy_count = quest.amount
 	spawner.enemy_template = load("res://scenes/enemies/" + quest.target + ".tscn")
 	spawner.spawn_name = id
@@ -101,7 +99,7 @@ func start_npc_quest(id: String):
 
 
 func start_bard_quest(id: String):
-	var quest = available_bard_quests[id]
+	var quest = available_quests[id]
 
 	var spawner = spawner_template.instance()
 
