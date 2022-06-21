@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/tiles/sets/all.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/tiles/sets/water.tres" type="TileSet" id=2]
@@ -7,6 +7,54 @@
 [ext_resource path="res://assets/tiles/sets/tavern.tres" type="TileSet" id=5]
 [ext_resource path="res://assets/tiles/sets/trees.tres" type="TileSet" id=6]
 [ext_resource path="res://scripts/KinematicBody2D.gd" type="Script" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 851.75, 760.25 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 914.5, 504.5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 758.25, 538.5 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 1264.5, 733 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 575.5, 339 )
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 853.029
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 490.125, 295 )
+
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 538.0
+height = 820.0
+
+[sub_resource type="CapsuleShape2D" id=9]
+radius = 578.0
+height = 710.0
+
+[sub_resource type="CapsuleShape2D" id=10]
+radius = 272.0
+height = 904.0
+
+[sub_resource type="CircleShape2D" id=11]
+radius = 710.612
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 1080, 606 )
+
+[sub_resource type="CircleShape2D" id=13]
+radius = 598.803
+
+[sub_resource type="CircleShape2D" id=14]
+radius = 791.091
+
+[sub_resource type="CircleShape2D" id=15]
+radius = 476.026
 
 [node name="Tiles" type="Node2D"]
 
@@ -46,7 +94,7 @@ cell_size = Vector2( 32, 32 )
 cell_quadrant_size = 32
 collision_use_parent = true
 format = 1
-tile_data = PoolIntArray( 262248, 3, 0, 262251, 3, 0, 327743, 1, 0, 393288, 1, 0, 524375, 1, 0, 786436, 1, 0, 786439, 1, 0, 786479, 1, 0, 852016, 1, 0, 917553, 1, 0, 983044, 1, 0, 983050, 1, 0, 1441850, 1, 0, 1703989, 1, 0, 1769514, 1, 0, 1769516, 1, 0, 1835052, 1, 0, 1835144, 3, 0, 1900670, 3, 0, 1966117, 1, 0, 2031660, 1, 0, 2097196, 1, 0, 2162778, 1, 0, 2228269, 1, 0, 2228312, 1, 0, 2228314, 1, 0, 2228319, 1, 0, 2228321, 3, 0, 2228348, 4, 0, 2293805, 1, 0, 2293881, 3, 0, 2359416, 3, 0, 2359430, 3, 0, 2359432, 3, 0, 2556020, 3, 0, 2621558, 3, 0, 2687099, 3, 0, 3276939, 3, 0, 3408013, 3, 0, 4325423, 1, 0, 4325438, 1, 0, 4390970, 1, 0, 4456635, 3, 0, 4522041, 1, 0, 4718641, 1, 0, 4718645, 1, 0, 4718650, 1, 0, 4849672, 1, 0, 4849674, 1, 0, 4915208, 1, 0, 4915210, 1, 0, 4915213, 1, 0, 5177378, 1, 0, 5570712, 3, 0, 5701705, 1, 0, 5701773, 3, 0, 5767241, 1, 0, 5767311, 3, 0, 5832776, 1, 0, 5832778, 1, 0, 5963912, 3, 0, 6029457, 3, 0, 6225976, 0, 0, 6357017, 0, 0, 6619257, 4, 0, 6881308, 0, 0, 7077914, 0, 0, 7208984, 0, 0, 7340150, 4, 0, 8061005, 0, 0, 8126544, 0, 0, 8716314, 0, 0, 8912900, 0, 0, 9437258, 0, 0, 9502762, 0, 0, 9502764, 0, 0, 9502766, 0, 0, 9764905, 0, 0, 9830444, 0, 0, 10158234, 4, 0, 10158243, 4, 0, 10223770, 4, 0, 10223772, 4, 0, 10223777, 4, 0, 10223779, 4, 0, 10485910, 4, 0, 10485916, 4, 0, 10485921, 4, 0, 10551405, 4, 0, 10616938, 4, 0, 10878997, 0, 0, 11010186, 4, 0, 11075771, 4, 0, 11141256, 4, 0, 11141307, 4, 0, 11206842, 4, 0, 11206844, 4, 0, 11337806, 0, 0, 11534416, 0, 0, 11599945, 0, 0, 11665483, 0, 0, 11731022, 0, 0, 11731118, 1, 0, 12255354, 4, 0, 12255356, 1, 0, 12320822, 0, 0, 12451889, 0, 0, 12451895, 0, 0, 23527755, 0, 0 )
+tile_data = PoolIntArray( 262248, 3, 0, 262251, 3, 0, 327743, 1, 0, 393288, 1, 0, 524375, 1, 0, 786436, 1, 0, 786439, 1, 0, 786479, 1, 0, 852016, 1, 0, 917553, 1, 0, 983044, 1, 0, 983050, 1, 0, 1441850, 1, 0, 1703989, 1, 0, 1769514, 1, 0, 1769516, 1, 0, 1835052, 1, 0, 1835144, 3, 0, 1900670, 3, 0, 1966117, 1, 0, 2031660, 1, 0, 2097196, 1, 0, 2162778, 1, 0, 2228269, 1, 0, 2228312, 1, 0, 2228314, 1, 0, 2228319, 1, 0, 2228321, 3, 0, 2228348, 4, 0, 2293805, 1, 0, 2293881, 3, 0, 2359416, 3, 0, 2359430, 3, 0, 2359432, 3, 0, 2556020, 3, 0, 2621558, 3, 0, 2687099, 3, 0, 3276939, 3, 0, 3408013, 3, 0, 4325423, 1, 0, 4325438, 1, 0, 4390970, 1, 0, 4456635, 3, 0, 4522041, 1, 0, 4718641, 1, 0, 4718645, 1, 0, 4718650, 1, 0, 4849672, 1, 0, 4849674, 1, 0, 4915208, 1, 0, 4915210, 1, 0, 4915213, 1, 0, 5177378, 1, 0, 5570712, 3, 0, 5701705, 1, 0, 5701773, 3, 0, 5767241, 1, 0, 5767311, 3, 0, 5832776, 1, 0, 5832778, 1, 0, 5963912, 3, 0, 6029457, 3, 0, 6225976, 0, 0, 6357017, 0, 0, 6619257, 4, 0, 6881308, 0, 0, 7077914, 0, 0, 7208984, 0, 0, 7340150, 4, 0, 8061005, 0, 0, 8126544, 0, 0, 8716314, 0, 0, 8912900, 0, 0, 9437258, 0, 0, 9502762, 0, 0, 9502764, 0, 0, 9502766, 0, 0, 9764905, 0, 0, 9830444, 0, 0, 10158234, 4, 0, 10158243, 4, 0, 10223770, 4, 0, 10223772, 4, 0, 10223777, 4, 0, 10223779, 4, 0, 10485910, 4, 0, 10485916, 4, 0, 10485921, 4, 0, 10551405, 4, 0, 10616938, 4, 0, 10878997, 0, 0, 11010186, 4, 0, 11075771, 4, 0, 11141256, 4, 0, 11141281, 4, 0, 11141307, 4, 0, 11206842, 4, 0, 11206844, 4, 0, 11272355, 4, 0, 11337806, 0, 0, 11403429, 4, 0, 11534416, 0, 0, 11534493, 4, 0, 11534495, 4, 0, 11599945, 0, 0, 11665483, 0, 0, 11731022, 0, 0, 11731118, 1, 0, 12255354, 4, 0, 12255356, 1, 0, 12320822, 0, 0, 12451889, 0, 0, 12451895, 0, 0, 23527755, 0, 0 )
 
 [node name="StaticBodyTavern" type="StaticBody2D" parent="."]
 
@@ -85,3 +133,126 @@ show_collision = true
 collision_use_parent = true
 format = 1
 tile_data = PoolIntArray( 0, 14, 0, 1, 14, 0, 2, 14, 0, 3, 14, 0, 4, 14, 0, 5, 14, 0, 6, 14, 0, 7, 14, 0, 2293941, 14, 0, 2359478, 14, 0, 2359479, 14, 0, 2425015, 14, 0, 2425016, 14, 0, 2490552, 14, 0 )
+
+[node name="Villages" type="Node2D" parent="."]
+z_index = 20
+
+[node name="Jungle1" type="Area2D" parent="Villages"]
+position = Vector2( 5360, 4162 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Villages/Jungle1"]
+position = Vector2( 29.5, -12.5 )
+z_index = 20
+shape = SubResource( 1 )
+
+[node name="Jungle2" type="Area2D" parent="Villages"]
+position = Vector2( 11768, 4603 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Villages/Jungle2"]
+position = Vector2( 83, -54 )
+z_index = 20
+shape = SubResource( 2 )
+
+[node name="Jungle3" type="Area2D" parent="Villages"]
+position = Vector2( 1579, 9840 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Villages/Jungle3"]
+position = Vector2( -113, 19 )
+z_index = 20
+shape = SubResource( 3 )
+
+[node name="Jungle4" type="Area2D" parent="Villages"]
+position = Vector2( 6988, 8979 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Villages/Jungle4"]
+position = Vector2( 94, 17 )
+z_index = 20
+shape = SubResource( 4 )
+
+[node name="Mountains1" type="Area2D" parent="Villages"]
+position = Vector2( 13741, 741 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Villages/Mountains1"]
+position = Vector2( 16, -14 )
+shape = SubResource( 5 )
+
+[node name="Mountains2" type="Area2D" parent="Villages"]
+position = Vector2( 15568, 4984 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Villages/Mountains2"]
+position = Vector2( -18, -33 )
+shape = SubResource( 6 )
+
+[node name="Mountains3" type="Area2D" parent="Villages"]
+position = Vector2( 17242, 8542 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Villages/Mountains3"]
+position = Vector2( 89, 97 )
+shape = SubResource( 7 )
+
+[node name="Mountains4" type="Area2D" parent="Villages"]
+position = Vector2( 18109, 11747 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Villages/Mountains4"]
+position = Vector2( 21, -100 )
+rotation = 1.5708
+shape = SubResource( 8 )
+
+[node name="Sand1" type="Area2D" parent="Villages"]
+position = Vector2( 3421, 13998 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Villages/Sand1"]
+position = Vector2( -165, -71 )
+shape = SubResource( 9 )
+
+[node name="Sand2" type="Area2D" parent="Villages"]
+position = Vector2( 10406, 16022 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Villages/Sand2"]
+position = Vector2( -351, -43 )
+rotation = 1.5708
+shape = SubResource( 10 )
+
+[node name="Sand3" type="Area2D" parent="Villages"]
+position = Vector2( 5331, 18901 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Villages/Sand3"]
+position = Vector2( 104, 87 )
+rotation = 1.5708
+shape = SubResource( 9 )
+
+[node name="Sand4" type="Area2D" parent="Villages"]
+position = Vector2( 9974, 22630 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Villages/Sand4"]
+position = Vector2( 10, 98 )
+rotation = 1.5708
+shape = SubResource( 11 )
+
+[node name="Meadow1" type="Area2D" parent="Villages"]
+position = Vector2( 20355, 20317 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Villages/Meadow1"]
+position = Vector2( -206, -66 )
+shape = SubResource( 12 )
+
+[node name="Meadow2" type="Area2D" parent="Villages"]
+position = Vector2( 13964, 21003 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Villages/Meadow2"]
+position = Vector2( -28, 2 )
+shape = SubResource( 13 )
+
+[node name="Meadow3" type="Area2D" parent="Villages"]
+position = Vector2( 20788, 22494 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Villages/Meadow3"]
+position = Vector2( -78, -32 )
+shape = SubResource( 14 )
+
+[node name="Meadow4" type="Area2D" parent="Villages"]
+position = Vector2( 24050, 22165 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Villages/Meadow4"]
+position = Vector2( 107, -190 )
+shape = SubResource( 15 )

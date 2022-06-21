@@ -4,7 +4,7 @@ onready var viewport = get_viewport()
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var base = 0.88
+var base = 0.8
 var scl
 var resolution = 720
 
