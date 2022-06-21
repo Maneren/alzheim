@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/knife.png-86665db6eeb5e6bfd14ec58ddd1d19d3.stex"
+path="res://.import/Saber.png-9409dc3cca0f47f4f172beeabeb80575.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/items/weapons/knife.png"
-dest_files=[ "res://.import/knife.png-86665db6eeb5e6bfd14ec58ddd1d19d3.stex" ]
+source_file="res://assets/textures/items/weapons/Saber.png"
+dest_files=[ "res://.import/Saber.png-9409dc3cca0f47f4f172beeabeb80575.stex" ]
 
 [params]
 

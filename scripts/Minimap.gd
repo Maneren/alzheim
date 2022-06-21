@@ -2,6 +2,8 @@ extends Node2D
 
 onready var PLAYER = get_node("/root/Game/Player")
 
+export(int) var forget_time
+
 
 func _input(event):
 	if event is InputEventKey and event.pressed and event.scancode == KEY_M:
@@ -14,7 +16,7 @@ func _ready():
 
 		var timer = Timer.new()
 		timer.name = "Timer"
-		timer.wait_time = 300
+		timer.wait_time = forget_time
 		timer.one_shot = true
 		timer.connect("timeout", village, "_on_Timer_timeout")
 
@@ -34,3 +36,8 @@ func show_village(name: String):
 	var village = $Houses.get_node(name)
 	village.visible = true
 	village.get_node("Timer").start()
+
+
+func update_forget_time():
+	for village in $Houses.get_children():
+		village.get_node("Timer").wait_time = forget_time

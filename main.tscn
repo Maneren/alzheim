@@ -14,11 +14,10 @@ script = ExtResource( 7 )
 [node name="Tiles" parent="." instance=ExtResource( 2 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 22841, 5645 )
+position = Vector2( 5162, 18929 )
 z_index = 12
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-visible = false
 current = true
 
 [node name="HUD" parent="Player/Camera2D" instance=ExtResource( 5 )]
@@ -28,6 +27,7 @@ position = Vector2( -452, -262 )
 visible = false
 position = Vector2( 261, -4 )
 scale = Vector2( 0.5, 0.5 )
+forget_time = 240
 
 [node name="QuestGivers" parent="." instance=ExtResource( 3 )]
 position = Vector2( 15, -68 )

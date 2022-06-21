@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/blacksaber.png-7605560f908a829407a05e6374a5aa9b.stex"
+path="res://.import/Blacksaber.png-0b0525f16a940b34a191ef4f488a7e99.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/items/weapons/blacksaber.png"
-dest_files=[ "res://.import/blacksaber.png-7605560f908a829407a05e6374a5aa9b.stex" ]
+source_file="res://assets/textures/items/weapons/Blacksaber.png"
+dest_files=[ "res://.import/Blacksaber.png-0b0525f16a940b34a191ef4f488a7e99.stex" ]
 
 [params]
 
