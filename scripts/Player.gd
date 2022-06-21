@@ -80,6 +80,7 @@ func _process(delta):
 	attack_cooldown.tick(delta)
 	if Input.is_key_pressed(KEY_SPACE) and attack_cooldown.is_ready():
 		attacking = true
+		$PlayerAttack.play()
 		$Weapon.visible = true
 
 	if attacking:

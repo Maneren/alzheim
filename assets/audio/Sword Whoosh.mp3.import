@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Sword Whoosh.mp3-d06da3a4ed810e160f1df23be54e8a27.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Sword Whoosh.mp3"
+dest_files=[ "res://.import/Sword Whoosh.mp3-d06da3a4ed810e160f1df23be54e8a27.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
