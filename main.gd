@@ -28,13 +28,14 @@ func load_game():
 
 	player["active_npc_quests"] = {}
 	for quest in player["active_npc_quests_names"]:
-		player["active_npc_quests"][quest] = $QuestGivers.available_npc_quests[quest]
+		player["active_npc_quests"][quest] = $QuestGivers.available_quests[quest]
 
 	player["active_bard_quests"] = {}
 	for quest in player["active_bard_quests_names"]:
-		player["active_bard_quests"][quest] = $QuestGivers.available_bard_quests[quest]
+		player["active_bard_quests"][quest] = $QuestGivers.available_quests[quest]
 
 	$Player.load_save_data(player)
+	$Enemies.load_save_data(enemies)
 
 
 func save_game():

@@ -18,8 +18,8 @@ func get_save_data():
 	for child in get_children():
 		print(child.name)
 		if child.name.begins_with("Single"):
-			print(JSON.print(child))
-			# data[child.name.split(":")[1]] = JSON.print(child)
+			var child_data = {"counter": child.counter - 1}
+			data[child.spawn_name] = child_data
 
 	print(data)
 	return data
@@ -27,13 +27,24 @@ func get_save_data():
 
 func load_save_data(data):
 	for id in data:
-		var child_json = data[id]
+		var quest_data = data[id]
 
-		var err = JSON.parse(child_json)
+		var quest_givers = get_node("/root/Game/QuestGivers")
+		var quest = quest_givers.available_quests[id]
+		var spawner = load("res://scenes/SingleSpawner.tscn").instance()
 
-		if err:
-			print("Error loading quest: " + id)
-			print(err)
-			continue
+		spawner.name = "quest:" + id
+		spawner.max_enemy_count = quest.amount
+		spawner.enemy_template = load("res://scenes/enemies/" + quest.target + ".tscn")
+		spawner.spawn_name = id
+		var x = quest.coords[0]
+		var y = quest.coords[1]
+		spawner.position = Vector2(x, y) * 128
+		spawner.connect("enemy_killed", self, "_on_Spawner_enemy_killed")
 
-		add_child(err.result)
+		spawner.counter = quest_data["counter"]
+
+		self.add_child(spawner)
+
+	print(get_children())
+	breakpoint

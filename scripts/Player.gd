@@ -36,12 +36,12 @@ func _ready():
 
 
 func set_health(new_health: int):
-	self.health = health
+	self.health = new_health
 	HP_LABEL.text = str(health)
 
 
 func set_xp(new_xp: int):
-	self.xp = xp
+	self.xp = new_xp
 	XP_LABEL.text = str(xp)
 
 

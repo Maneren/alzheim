@@ -7,7 +7,7 @@ var active_quest
 
 func _ready():
 	for quest in quests:
-		if get_parent().get_parent().available_npc_quests[quest]:
+		if get_parent().get_parent().available_quests[quest]:
 			pass
 
 
@@ -24,4 +24,4 @@ func try_get_quest():
 
 	get_parent().get_parent().start_npc_quest(quest)
 
-	return {"id": quest, "data": get_parent().get_parent().available_npc_quests[quest]}
+	return {"id": quest, "data": get_parent().get_parent().available_quests[quest]}
