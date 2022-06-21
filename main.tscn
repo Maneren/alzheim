@@ -24,7 +24,8 @@ current = true
 position = Vector2( -452, -262 )
 
 [node name="Minimap" parent="Player/Camera2D/HUD" instance=ExtResource( 6 )]
-position = Vector2( 534, 13 )
+position = Vector2( 261, -4 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="QuestGivers" parent="." instance=ExtResource( 3 )]
 
