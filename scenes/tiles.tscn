@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/tiles/sets/all.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/tiles/sets/water.tres" type="TileSet" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/tiles/sets/trees.tres" type="TileSet" id=6]
 [ext_resource path="res://scripts/KinematicBody2D.gd" type="Script" id=7]
 [ext_resource path="res://scenes/Lamps/Animation/Lamp.tres" type="SpriteFrames" id=8]
+[ext_resource path="res://assets/textures/items/lamp/Light2.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 851.75, 760.25 )
@@ -136,6 +137,7 @@ format = 1
 tile_data = PoolIntArray( 0, 14, 0, 1, 14, 0, 2, 14, 0, 3, 14, 0, 4, 14, 0, 5, 14, 0, 6, 14, 0, 7, 14, 0, 2293941, 14, 0, 2359478, 14, 0, 2359479, 14, 0, 2425015, 14, 0, 2425016, 14, 0, 2490552, 14, 0 )
 
 [node name="Villages" type="Node2D" parent="."]
+visible = false
 z_index = 20
 
 [node name="Jungle1" type="Area2D" parent="Villages"]
@@ -263,59 +265,107 @@ position = Vector2( 23168, 1534 )
 scale = Vector2( 4, 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Lamps"]
-position = Vector2( 63, 291.75 )
-scale = Vector2( 4, 4 )
+position = Vector2( 56, 251.5 )
+scale = Vector2( 2, 2 )
 frames = ExtResource( 8 )
 frame = 1
 playing = true
+
+[node name="Light2D" type="Light2D" parent="Lamps/AnimatedSprite"]
+position = Vector2( -0.875, -0.5 )
+texture = ExtResource( 9 )
+color = Color( 1, 0.584314, 0, 1 )
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Lamps"]
-position = Vector2( 189.75, 287.75 )
-scale = Vector2( 4, 4 )
+position = Vector2( 220.5, 265.75 )
+scale = Vector2( 2, 2 )
 frames = ExtResource( 8 )
-frame = 1
 playing = true
+
+[node name="Light2D5" type="Light2D" parent="Lamps/AnimatedSprite2"]
+position = Vector2( 1, 0.25 )
+texture = ExtResource( 9 )
+color = Color( 1, 0.584314, 0, 1 )
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="Lamps"]
-position = Vector2( 6.75, 22.75 )
+modulate = Color( 1, 0.266667, 0.266667, 1 )
+position = Vector2( -55, 22.75 )
 scale = Vector2( 4, 4 )
 frames = ExtResource( 8 )
 playing = true
 
+[node name="Light2D2" type="Light2D" parent="Lamps/AnimatedSprite3"]
+position = Vector2( 0.625, 0 )
+texture = ExtResource( 9 )
+color = Color( 1, 0.282353, 0, 1 )
+
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="Lamps"]
+modulate = Color( 1, 0.176471, 0.176471, 1 )
 position = Vector2( 224.75, 20.75 )
 scale = Vector2( 4, 4 )
 frames = ExtResource( 8 )
 frame = 1
 playing = true
 
+[node name="Light2D3" type="Light2D" parent="Lamps/AnimatedSprite4"]
+position = Vector2( 0.0625, -0.5 )
+texture = ExtResource( 9 )
+color = Color( 1, 0.282353, 0, 1 )
+
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="Lamps"]
-position = Vector2( 8.75, 169.75 )
-scale = Vector2( 4, 4 )
+position = Vector2( -47.75, 176 )
+scale = Vector2( 2, 2 )
 frames = ExtResource( 8 )
 frame = 1
 playing = true
 
+[node name="Light2D4" type="Light2D" parent="Lamps/AnimatedSprite5"]
+position = Vector2( 121.875, -194.25 )
+texture = ExtResource( 9 )
+color = Color( 1, 0.584314, 0, 1 )
+
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="Lamps"]
 position = Vector2( 216.75, 166.75 )
-scale = Vector2( 4, 4 )
+scale = Vector2( 2, 2 )
 frames = ExtResource( 8 )
 playing = true
+
+[node name="Light2D6" type="Light2D" parent="Lamps/AnimatedSprite6"]
+position = Vector2( -148.125, -151.875 )
+texture = ExtResource( 9 )
+color = Color( 1, 0.584314, 0, 1 )
 
 [node name="AnimatedSprite8" type="AnimatedSprite" parent="Lamps"]
 position = Vector2( 195.75, -213.25 )
-scale = Vector2( 4, 4 )
+scale = Vector2( 2, 2 )
 frames = ExtResource( 8 )
 playing = true
+
+[node name="Light2D7" type="Light2D" parent="Lamps/AnimatedSprite8"]
+position = Vector2( -198.875, 179.625 )
+texture = ExtResource( 9 )
+color = Color( 1, 0.584314, 0, 1 )
 
 [node name="AnimatedSprite9" type="AnimatedSprite" parent="Lamps"]
 position = Vector2( -80, -137.5 )
-scale = Vector2( 4, 4 )
+scale = Vector2( 2, 2 )
 frames = ExtResource( 8 )
+frame = 1
 playing = true
+
+[node name="Light2D8" type="Light2D" parent="Lamps/AnimatedSprite9"]
+position = Vector2( 17.125, 156.75 )
+texture = ExtResource( 9 )
+color = Color( 1, 0.584314, 0, 1 )
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="Lamps"]
 position = Vector2( -203.25, 145.75 )
-scale = Vector2( 4, 4 )
+scale = Vector2( 2, 2 )
 frames = ExtResource( 8 )
+frame = 1
 playing = true
+
+[node name="Light2D9" type="Light2D" parent="Lamps/AnimatedSprite7"]
+position = Vector2( 210.375, 9.75 )
+texture = ExtResource( 9 )
+color = Color( 1, 0.584314, 0, 1 )
