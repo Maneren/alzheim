@@ -36,3 +36,8 @@ shape = SubResource( 1 )
 shape = SubResource( 3 )
 
 [node name="Weapon" parent="." instance=ExtResource( 1 )]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = -8.0
+max_distance = 640.0
+attenuation = 0.4
