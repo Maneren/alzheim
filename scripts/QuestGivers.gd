@@ -89,6 +89,8 @@ func start_npc_quest(id: String):
 
 	var spawner = spawner_template.instance()
 
+	spawner.name = "quest:" + id
+
 	spawner.max_enemy_count = quest.amount
 	spawner.enemy_template = load("res://scenes/enemies/" + quest.target + ".tscn")
 	spawner.spawn_name = id

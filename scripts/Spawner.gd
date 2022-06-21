@@ -2,7 +2,7 @@ extends Node
 
 export(int) var max_enemy_count
 export(PackedScene) var enemy_template
-export(int) var enemy_spawn_interval
+export(int) var enemy_spawn_interval = 1
 
 signal enemy_killed(xp_reward, name)
 

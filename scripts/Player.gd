@@ -35,6 +35,16 @@ func _ready():
 	XP_LABEL.text = str(xp)
 
 
+func set_health(new_health: int):
+	self.health = health
+	HP_LABEL.text = str(health)
+
+
+func set_xp(new_xp: int):
+	self.xp = xp
+	XP_LABEL.text = str(xp)
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var dx: int = 0
@@ -63,8 +73,7 @@ func _process(delta):
 		collision = move_and_collide(movement)
 
 	if collision and collision.collider.name == "StaticBodyTavern":
-		health = min(health + 1, max_health)
-		HP_LABEL.text = str(health)
+		set_health(min(health + 1, max_health))
 
 	attack_cooldown.tick(delta)
 	if Input.is_key_pressed(KEY_SPACE) and attack_cooldown.is_ready():
@@ -104,8 +113,7 @@ func attack_tick(delta):
 
 func take_damage(damage):
 	print("Take damage:", damage)
-	self.health -= damage
-	HP_LABEL.text = str(health)
+	set_health(health - damage)
 
 	if self.health <= 0:
 		die()
@@ -129,13 +137,11 @@ func die():
 			closest_distance = dist
 
 	self.position = closest
-	self.health = max_health
-	HP_LABEL.text = str(health)
+	set_health(max_health)
 
 
 func _on_Enemies_enemy_killed(xp_reward: int, name: String):
-	xp += xp_reward
-	XP_LABEL.text = str(xp)
+	set_xp(xp + xp_reward)
 	print("Killed enemy:", name, "XP:", xp_reward)
 	print("Current XP:", xp)
 
@@ -146,8 +152,7 @@ func _on_Enemies_enemy_killed(xp_reward: int, name: String):
 			self.quest_counter += 1
 			if self.quest_counter >= quest.amount:
 				print("Quest complete:", id)
-				self.xp += quest.xp
-				XP_LABEL.text = str(xp)
+				set_xp(xp + quest.xp)
 				self.finished_npc_quests.append(id)
 				self.active_npc_quests.erase(id)
 
@@ -163,8 +168,10 @@ func _on_Enemies_enemy_killed(xp_reward: int, name: String):
 			self.quest_counter += 1
 			if self.quest_counter >= quest.amount:
 				print("Quest complete:", id)
+				set_xp(xp + quest.xp)
 				self.finished_bard_quests.append(id)
 				self.active_bard_quests.erase(id)
+
 				quest_counter = 0
 
 			print(self.quest_counter, "of", quest.amount, "enemies killed")
@@ -221,3 +228,29 @@ func get_quest():
 					print("No quest available")
 
 			break
+
+
+func get_save_data():
+	return {
+		"xp": xp,
+		"health": health,
+		"max_health": max_health,
+		"quest_counter": quest_counter,
+		"position": position,
+		"finished_npc_quests": finished_npc_quests,
+		"finished_bard_quests": finished_bard_quests,
+		"active_npc_quests_names": active_npc_quests.keys(),
+		"active_bard_quests_names": active_bard_quests.keys()
+	}
+
+
+func load_save_data(data):
+	xp = data["xp"]
+	health = data["health"]
+	max_health = data["max_health"]
+	quest_counter = data["quest_counter"]
+	position = str2var("Vector2" + data["position"])
+	finished_npc_quests = data["finished_npc_quests"]
+	finished_bard_quests = data["finished_bard_quests"]
+	active_npc_quests = data["active_npc_quests"]
+	active_bard_quests = data["active_bard_quests"]
