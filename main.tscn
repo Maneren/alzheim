@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/tiles.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/QuestGivers.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Enemies.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Minimap.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/main.gd" type="Script" id=7]
 
 [node name="Game" type="Node2D"]
+script = ExtResource( 7 )
 
 [node name="Tiles" parent="." instance=ExtResource( 2 )]
 
@@ -16,9 +19,12 @@ z_index = 12
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
-zoom = Vector2( 0.88, 0.88 )
 
 [node name="HUD" parent="Player/Camera2D" instance=ExtResource( 5 )]
+position = Vector2( -452, -262 )
+
+[node name="Minimap" parent="Player/Camera2D/HUD" instance=ExtResource( 6 )]
+position = Vector2( 373, 39 )
 
 [node name="QuestGivers" parent="." instance=ExtResource( 3 )]
 
