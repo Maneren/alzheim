@@ -4,7 +4,15 @@ signal village_entered(name)
 
 # Declare member variables here. Examples:
 const SPEED = 350
-onready var MINIMAP = get_node("Camera2D/HUD/Minimap")
+
+onready var HUD = get_node("Camera2D/HUD")
+
+onready var MINIMAP = HUD.get_node("Minimap")
+
+onready var IMAGE_TEXT_1ST = HUD.get_node("1st")
+onready var IMAGE_TEXT_F1 = HUD.get_node("F1")
+onready var IMAGE_TEXT_WIZARD = HUD.get_node("wizard")
+
 const Cooldown = preload("res://lib/Cooldown.gd")
 const WEAPONS = [
 	preload("res://assets/textures/items/weapons/Blunt_Sword.png"),
@@ -36,9 +44,11 @@ var quest_counter = 0
 var finished_npc_quests = []
 var finished_bard_quests = []
 
-onready var HP_LABEL = get_node("/root/Game/Player/Camera2D/HUD/HP")
-onready var XP_LABEL = get_node("/root/Game/Player/Camera2D/HUD/XP")
-onready var QUEST_LABEL = get_node("/root/Game/Player/Camera2D/HUD/quest")
+onready var HP_LABEL = HUD.get_node("HP")
+onready var XP_LABEL = HUD.get_node("XP")
+onready var QUEST_LABEL = HUD.get_node("quest")
+
+var something_shown = false
 
 
 func _ready():
@@ -82,7 +92,7 @@ func _process(delta):
 	var movement = normalized * SPEED * delta
 
 	var collision
-	if QUEST_LABEL.text == "":
+	if not something_shown:
 		collision = move_and_collide(movement)
 
 	if collision and collision.collider.name == "StaticBodyTavern":
@@ -197,8 +207,12 @@ func _on_Enemies_enemy_killed(xp_reward: int, name: String):
 
 func _input(event: InputEvent):
 	if event is InputEventKey and event.pressed:
-		if event.scancode == KEY_ENTER and QUEST_LABEL.text != "":
+		if event.scancode == KEY_ENTER:
 			QUEST_LABEL.text = ""
+			IMAGE_TEXT_1ST.visible = false
+			IMAGE_TEXT_F1.visible = false
+			IMAGE_TEXT_WIZARD.visible = false
+			something_shown = false
 		elif event.scancode == KEY_E:
 			get_quest()
 		elif event.scancode == KEY_HOME:
@@ -226,6 +240,8 @@ func get_quest():
 					QUEST_LABEL.text = "I don't have any quests for you"
 					print("No quest available")
 
+			something_shown = true
+
 			break
 
 		elif npc.name.begins_with("Musician"):
@@ -245,6 +261,15 @@ func get_quest():
 				else:
 					QUEST_LABEL.text = "I don't have any quests for you"
 					print("No quest available")
+
+			something_shown = true
+			break
+
+		elif npc.name == "1stNPC":
+			print("Talk to 1stNPC")
+
+			IMAGE_TEXT_1ST.visible = true
+			something_shown = true
 
 			break
 

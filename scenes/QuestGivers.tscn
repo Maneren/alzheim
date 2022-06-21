@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/textures/characters/NPC/Bard3.png" type="Texture" id=1]
 [ext_resource path="res://assets/textures/characters/NPC/Bard4.png" type="Texture" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://scenes/NPC.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scripts/QuestGivers.gd" type="Script" id=10]
 [ext_resource path="res://scenes/Musician.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scripts/1stNPC.gd" type="Script" id=12]
+[ext_resource path="res://scenes/1stNPC.tscn" type="PackedScene" id=13]
 
 [node name="QuestGivers" type="Node2D"]
 z_index = 7
@@ -83,10 +85,10 @@ position = Vector2( 1, -58 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 6 )
 
-[node name="1stNPC" type="Node2D" parent="."]
+[node name="1stNPC" parent="." instance=ExtResource( 13 )]
 position = Vector2( 15332, 13230 )
-scale = Vector2( 4, 4 )
+script = ExtResource( 12 )
 
 [node name="Sprite" type="Sprite" parent="1stNPC"]
-position = Vector2( 0, -14.75 )
+scale = Vector2( 4, 4 )
 texture = ExtResource( 4 )
