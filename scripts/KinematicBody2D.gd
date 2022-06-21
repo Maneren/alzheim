@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 var moving = 0
+var player_entered = false
 
 
 func _on_Area2D_area_shape_entered(_area_rid, area: Area2D, _area_shape_index, _local_shape_index):
@@ -9,6 +10,12 @@ func _on_Area2D_area_shape_entered(_area_rid, area: Area2D, _area_shape_index, _
 		if area.owner.finished_bard_quests.size() == 4:
 			print("Opening")
 			moving = 1
+
+			if not player_entered:
+				area.owner.IMAGE_TEXT_WIZARD.visible = true
+				area.owner.something_shown = true
+
+			player_entered = true
 
 
 func _on_Area2D_area_shape_exited(_area_rid, area: Area2D, _area_shape_index, _local_shape_index):

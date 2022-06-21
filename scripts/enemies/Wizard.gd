@@ -25,3 +25,7 @@ func _process(delta):
 		attack_tick(delta)
 	else:
 		$Weapon.visible = false
+
+
+func match_sprite_direction(_vec: Vector2):
+	pass

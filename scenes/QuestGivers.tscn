@@ -37,7 +37,7 @@ scale = Vector2( 4, 4 )
 texture = ExtResource( 8 )
 
 [node name="NPC3" parent="NPC" instance=ExtResource( 9 )]
-position = Vector2( 6032, 19088 )
+position = Vector2( 4880, 19088 )
 
 [node name="Sprite" type="Sprite" parent="NPC/NPC3"]
 scale = Vector2( 4, 4 )

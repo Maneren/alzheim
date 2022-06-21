@@ -42,7 +42,7 @@ var active_bard_quests = {}
 var quest_counter = 0
 
 var finished_npc_quests = []
-var finished_bard_quests = []
+var finished_bard_quests = [1, 2, 3, 4]
 
 onready var HP_LABEL = HUD.get_node("HP")
 onready var XP_LABEL = HUD.get_node("XP")
@@ -70,6 +70,11 @@ func set_xp(new_xp: int):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if QUEST_LABEL.text == "":
+		QUEST_LABEL.visible = false
+	else:
+		QUEST_LABEL.visible = true
+
 	var dx: int = 0
 	var dy: int = 0
 
@@ -215,8 +220,8 @@ func _input(event: InputEvent):
 			something_shown = false
 		elif event.scancode == KEY_E:
 			get_quest()
-		elif event.scancode == KEY_HOME:
-			set_xp(xp + 100)  # TODO: remove this
+		elif event.scancode == KEY_END:
+			die()
 
 
 func get_quest():

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/Enemies.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Spawner.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/enemies/Skeleton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/enemies/Slime.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/enemies/Imp.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/enemies/Wizard.tscn" type="PackedScene" id=6]
 
 [node name="Enemies" type="Node2D"]
 z_index = 8
@@ -123,3 +124,6 @@ position = Vector2( 8704, 11008 )
 max_enemy_count = 8
 enemy_template = ExtResource( 4 )
 enemy_spawn_interval = 40
+
+[node name="Wizard" parent="." instance=ExtResource( 6 )]
+position = Vector2( 23168, 1534 )
