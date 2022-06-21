@@ -14,6 +14,7 @@ script = ExtResource( 1 )
 position = Vector2( 1664, 23680 )
 max_enemy_count = 2
 enemy_template = ExtResource( 3 )
+enemy_spawn_interval = 20
 
 [node name="Spawner2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 7040, 29241 )

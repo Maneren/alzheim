@@ -1,0 +1,14 @@
+[gd_scene format=2]
+
+[node name="HUD" type="Node2D"]
+z_index = 10
+
+[node name="HP" type="Label" parent="."]
+margin_right = 247.0
+margin_bottom = 97.0
+
+[node name="XP" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 96.0
+margin_right = 117.0
+margin_bottom = 134.0

@@ -11,6 +11,8 @@ var weapon_rotation = 0
 
 var max_health = 100
 var health = 100
+var xp = 0
+
 var attack_damage = 10
 
 onready var attack_cooldown = Cooldown.new(1)
@@ -22,6 +24,14 @@ var quest_counter = 0
 
 var finished_npc_quests = []
 var finished_bard_quests = []
+
+onready var HP_LABEL = get_node("/root/Game/Player/Camera2D/HUD/HP")
+onready var XP_LABEL = get_node("/root/Game/Player/Camera2D/HUD/XP")
+
+
+func _ready():
+	HP_LABEL.text = str(health)
+	XP_LABEL.text = str(xp)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -50,7 +60,8 @@ func _process(delta):
 	var collision = move_and_collide(movement)
 
 	if collision and collision.collider.name == "StaticBodyTavern":
-		health = min(health + 10, max_health)
+		health = min(health + 1, max_health)
+		HP_LABEL.text = str(health)
 
 	attack_cooldown.tick(delta)
 	if Input.is_key_pressed(KEY_SPACE) and attack_cooldown.is_ready():
@@ -91,6 +102,7 @@ func attack_tick(delta):
 func take_damage(damage):
 	print("Take damage:", damage)
 	self.health -= damage
+	HP_LABEL.text = str(health)
 
 	if self.health <= 0:
 		die()
@@ -114,13 +126,13 @@ func die():
 			closest_distance = dist
 
 	self.position = closest
-
-
-var xp = 0
+	self.health = max_health
+	HP_LABEL.text = str(health)
 
 
 func _on_Enemies_enemy_killed(xp_reward: int, name: String):
 	xp += xp_reward
+	XP_LABEL.text = str(xp)
 	print("Killed enemy:", name, "XP:", xp_reward)
 	print("Current XP:", xp)
 
@@ -132,7 +144,8 @@ func _on_Enemies_enemy_killed(xp_reward: int, name: String):
 			if self.quest_counter >= quest.amount:
 				print("Quest complete:", id)
 				self.xp += quest.xp
-				self.finished_npc_quests.append(quest.id)
+				XP_LABEL.text = str(xp)
+				self.finished_npc_quests.append(id)
 				self.active_npc_quests[id] = null
 
 			print(self.quest_counter, "of", quest.amount, "enemies killed")

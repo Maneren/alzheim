@@ -1,22 +1,23 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/tiles.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/QuestGivers.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Enemies.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=5]
 
 [node name="Game" type="Node2D"]
 
 [node name="Tiles" parent="." instance=ExtResource( 2 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 6868, 8952 )
+position = Vector2( 23263, 15334 )
 z_index = 12
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 
-[node name="HUD" type="Node2D" parent="Player/Camera2D"]
+[node name="HUD" parent="Player/Camera2D" instance=ExtResource( 5 )]
 
 [node name="QuestGivers" parent="." instance=ExtResource( 3 )]
 
