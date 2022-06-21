@@ -46,5 +46,3 @@ func load_save_data(data):
 
 		self.add_child(spawner)
 
-	print(get_children())
-	breakpoint

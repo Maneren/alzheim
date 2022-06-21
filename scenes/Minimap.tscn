@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/tiles/sets/all.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/tiles/sets/water.tres" type="TileSet" id=2]
@@ -7,8 +7,11 @@
 [ext_resource path="res://assets/tiles/Houses/Houses/House Desert.png" type="Texture" id=5]
 [ext_resource path="res://assets/tiles/Houses/Houses/House.png" type="Texture" id=6]
 [ext_resource path="res://assets/textures/image/Map-background1.png" type="Texture" id=7]
+[ext_resource path="res://scripts/Minimap.gd" type="Script" id=8]
+[ext_resource path="res://scripts/House.gd" type="Script" id=9]
 
 [node name="Minimap" type="Node2D"]
+script = ExtResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 265, 265 )
@@ -22,81 +25,97 @@ z_index = 2
 position = Vector2( 110, 89 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 3 )
+script = ExtResource( 9 )
 
 [node name="Jungle2" type="Sprite" parent="Houses"]
 position = Vector2( 244, 104 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 3 )
+script = ExtResource( 9 )
 
 [node name="Jungle3" type="Sprite" parent="Houses"]
 position = Vector2( 29, 167 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 3 )
+script = ExtResource( 9 )
 
 [node name="Jungle4" type="Sprite" parent="Houses"]
 position = Vector2( 145, 166 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 3 )
+script = ExtResource( 9 )
 
 [node name="Mountains1" type="Sprite" parent="Houses"]
 position = Vector2( 292, 29 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 4 )
+script = ExtResource( 9 )
 
 [node name="Mountains2" type="Sprite" parent="Houses"]
 position = Vector2( 340, 86 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 4 )
+script = ExtResource( 9 )
 
 [node name="Mountains3" type="Sprite" parent="Houses"]
 position = Vector2( 359, 148 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 4 )
+script = ExtResource( 9 )
 
 [node name="Mountains4" type="Sprite" parent="Houses"]
 position = Vector2( 365, 214 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 4 )
+script = ExtResource( 9 )
 
 [node name="Sand1" type="Sprite" parent="Houses"]
 position = Vector2( 73, 290 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 5 )
+script = ExtResource( 9 )
 
 [node name="Sand2" type="Sprite" parent="Houses"]
 position = Vector2( 201, 341 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 5 )
+script = ExtResource( 9 )
 
 [node name="Sand3" type="Sprite" parent="Houses"]
 position = Vector2( 101, 372 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 5 )
+script = ExtResource( 9 )
 
 [node name="Sand4" type="Sprite" parent="Houses"]
 position = Vector2( 185, 451 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 5 )
+script = ExtResource( 9 )
 
 [node name="Meadow1" type="Sprite" parent="Houses"]
 position = Vector2( 405, 395 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 6 )
+script = ExtResource( 9 )
 
 [node name="Meadow2" type="Sprite" parent="Houses"]
 position = Vector2( 298, 392 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 6 )
+script = ExtResource( 9 )
 
 [node name="Meadow3" type="Sprite" parent="Houses"]
 position = Vector2( 423, 446 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 6 )
+script = ExtResource( 9 )
 
 [node name="Meadow4" type="Sprite" parent="Houses"]
 position = Vector2( 483, 417 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 6 )
+script = ExtResource( 9 )
 
 [node name="Ground" type="TileMap" parent="."]
 scale = Vector2( 4, 4 )

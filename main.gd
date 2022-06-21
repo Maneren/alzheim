@@ -21,8 +21,12 @@ func window_resize():
 
 
 func _input(event):
-	if event is InputEventKey and event.pressed and event.scancode == KEY_F5:
-		save_game()
+	if event is InputEventKey and event.pressed:
+		if event.scancode == KEY_F5:
+			save_game()
+
+		elif event.scancode == KEY_F8:
+			delete_file()
 
 
 func load_game():
@@ -80,3 +84,9 @@ func load_file():
 	var content = file.get_as_text()
 	file.close()
 	return content
+
+
+func delete_file():
+	var dir = Directory.new()
+	dir.remove("user://save_game.dat")
+	print("Deleted save file")
