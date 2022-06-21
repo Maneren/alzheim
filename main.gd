@@ -2,7 +2,7 @@ extends Node2D
 
 onready var viewport = get_viewport()
 
-var base = 0.88
+var base = 0.8
 var scl
 var resolution = 720
 
