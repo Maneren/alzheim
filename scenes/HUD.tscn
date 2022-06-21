@@ -4,11 +4,17 @@
 z_index = 10
 
 [node name="HP" type="Label" parent="."]
-margin_right = 247.0
-margin_bottom = 97.0
+margin_right = 98.0
+margin_bottom = 36.0
 
 [node name="XP" type="Label" parent="."]
-margin_left = 7.0
-margin_top = 96.0
-margin_right = 117.0
-margin_bottom = 134.0
+margin_left = -54.0
+margin_top = 2.0
+margin_bottom = 32.0
+
+[node name="quest" type="Label" parent="."]
+margin_left = -356.0
+margin_top = 58.0
+margin_right = 360.0
+margin_bottom = 203.0
+autowrap = true

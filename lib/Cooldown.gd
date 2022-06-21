@@ -13,6 +13,14 @@ func tick(delta):
 	time = max(time - delta, 0)
 
 
+func reset():
+	time = max_time
+
+
+func reset_with_delay(_delay):
+	time = min(max_time, _delay)
+
+
 func is_ready():
 	if time > 0:
 		return false

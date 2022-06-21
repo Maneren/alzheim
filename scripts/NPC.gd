@@ -25,9 +25,3 @@ func try_get_quest():
 	get_parent().get_parent().start_npc_quest(quest)
 
 	return {"id": quest, "data": get_parent().get_parent().available_npc_quests[quest]}
-
-
-func try_finish_quest(quest, player):
-	if quest.id != active_quest.id:
-		print("Wrong quest")
-		return null

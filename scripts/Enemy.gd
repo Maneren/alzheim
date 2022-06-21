@@ -16,6 +16,8 @@ var xp_reward: int
 var health: int
 var attack_damage: int
 
+var first_attack = true
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -30,10 +32,14 @@ func _process(delta):
 			break
 
 	if not moving_to_player:
+		first_attack = true
 		move_to_node(delta / 2, get_parent())
 
 	for node in $AttackRange.get_overlapping_bodies():
 		if node.name == "Player":
+			if first_attack:
+				first_attack = false
+				attack_cooldown.reset_with_delay(1)
 			if attack_cooldown.is_ready():
 				print("Enemy attack!")
 				attacking = true

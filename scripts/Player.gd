@@ -27,6 +27,7 @@ var finished_bard_quests = []
 
 onready var HP_LABEL = get_node("/root/Game/Player/Camera2D/HUD/HP")
 onready var XP_LABEL = get_node("/root/Game/Player/Camera2D/HUD/XP")
+onready var QUEST_LABEL = get_node("/root/Game/Player/Camera2D/HUD/quest")
 
 
 func _ready():
@@ -57,7 +58,9 @@ func _process(delta):
 
 	var movement = normalized * SPEED * delta
 
-	var collision = move_and_collide(movement)
+	var collision
+	if QUEST_LABEL.text == "":
+		collision = move_and_collide(movement)
 
 	if collision and collision.collider.name == "StaticBodyTavern":
 		health = min(health + 1, max_health)
@@ -120,7 +123,7 @@ func die():
 	var closest_distance = 100000000
 
 	for tavern in taverns:
-		var dist = tavern - self.position
+		var dist = (tavern - self.position).length()
 		if dist < closest_distance:
 			closest = tavern
 			closest_distance = dist
@@ -146,27 +149,75 @@ func _on_Enemies_enemy_killed(xp_reward: int, name: String):
 				self.xp += quest.xp
 				XP_LABEL.text = str(xp)
 				self.finished_npc_quests.append(id)
-				self.active_npc_quests[id] = null
+				self.active_npc_quests.erase(id)
+
+				quest_counter = 0
+
+			print(self.quest_counter, "of", quest.amount, "enemies killed")
+		break
+
+	for id in active_bard_quests:
+		var quest = active_bard_quests[id]
+
+		if name.begins_with(id):
+			self.quest_counter += 1
+			if self.quest_counter >= quest.amount:
+				print("Quest complete:", id)
+				self.finished_bard_quests.append(id)
+				self.active_bard_quests.erase(id)
+				quest_counter = 0
 
 			print(self.quest_counter, "of", quest.amount, "enemies killed")
 		break
 
 
 func _input(event: InputEvent):
-	if event is InputEventKey and event.pressed and event.scancode == KEY_E:
-		for node in $InteractionArea.get_overlapping_areas():
-			var npc = node.owner
+	if event is InputEventKey and event.pressed:
+		if event.scancode == KEY_ENTER and QUEST_LABEL.text != "":
+			QUEST_LABEL.text = ""
+		elif event.scancode == KEY_E:
+			get_quest()
 
-			if npc.name.begins_with("NPC"):
-				print("Talk to NPC")
 
-				if npc.active_quest in self.active_npc_quests.keys():
-					print("Already talked to this NPC")
+func get_quest():
+	for node in $InteractionArea.get_overlapping_areas():
+		var npc = node.owner
+
+		print("NPC:", npc.name)
+
+		if npc.name.begins_with("NPC"):
+			print("Talk to NPC")
+
+			if npc.active_quest in self.active_npc_quests.keys():
+				print("Already talked to this NPC")
+				QUEST_LABEL.text = self.active_npc_quests[npc.active_quest].description
+			else:
+				var quest = npc.try_get_quest()
+				if quest:
+					self.active_npc_quests[quest.id] = quest.data
+					QUEST_LABEL.text = quest.data.description
 				else:
-					var quest = npc.try_get_quest()
-					if quest:
-						self.active_npc_quests[quest.id] = quest.data
-					else:
-						print("No quest available")
+					QUEST_LABEL.text = "I don't have any quests for you"
+					print("No quest available")
 
-				break
+			break
+
+		elif npc.name.begins_with("Musician"):
+			print("Talk to NPC")
+
+			if npc.active_quest in self.active_bard_quests.keys():
+				print("Already talked to this NPC")
+				QUEST_LABEL.text = self.active_bard_quests[npc.active_quest].description
+			elif npc.active_quest in self.finished_bard_quests:
+				print("Finished bard quest")
+				QUEST_LABEL.text = "Thanks for the help! Here you are a magical string"
+			else:
+				var quest = npc.try_get_quest()
+				if quest:
+					self.active_bard_quests[quest.id] = quest.data
+					QUEST_LABEL.text = quest.data.description
+				else:
+					QUEST_LABEL.text = "I don't have any quests for you"
+					print("No quest available")
+
+			break

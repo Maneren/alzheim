@@ -98,3 +98,19 @@ func start_npc_quest(id: String):
 	spawner.connect("enemy_killed", enemies_node, "_on_Spawner_enemy_killed")
 
 	enemies_node.add_child(spawner)
+
+
+func start_bard_quest(id: String):
+	var quest = available_bard_quests[id]
+
+	var spawner = spawner_template.instance()
+
+	spawner.max_enemy_count = quest.amount
+	spawner.enemy_template = load("res://scenes/enemies/" + quest.target + ".tscn")
+	spawner.spawn_name = id
+	var x = quest.coords[0]
+	var y = quest.coords[1]
+	spawner.position = Vector2(x, y) * 128
+	spawner.connect("enemy_killed", enemies_node, "_on_Spawner_enemy_killed")
+
+	enemies_node.add_child(spawner)
