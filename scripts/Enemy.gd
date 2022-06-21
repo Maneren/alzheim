@@ -109,11 +109,10 @@ func attack_tick(delta):
 	$Weapon.rotation = weapon_rotation + self.direction.angle()
 
 
-func take_damage(damage):
-	print("Enemy take damage:", damage)
+func take_damage(damage, name):
+	print("Enemy takes damage", damage, "from", name)
 	self.health -= damage
 
 	if self.health <= 0:
-		print("enemy_killed")
 		emit_signal("killed", xp_reward, name)
 		queue_free()

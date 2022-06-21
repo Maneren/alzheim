@@ -111,8 +111,8 @@ func attack_tick(delta):
 	$Weapon.rotation = weapon_rotation + self.direction.angle()
 
 
-func take_damage(damage):
-	print("Take damage:", damage)
+func take_damage(damage, name):
+	print("Player takes damage:", damage, "from", name)
 	set_health(health - damage)
 
 	if self.health <= 0:
