@@ -14,93 +14,112 @@ script = ExtResource( 1 )
 position = Vector2( 1664, 23680 )
 max_enemy_count = 2
 enemy_template = ExtResource( 3 )
-enemy_spawn_interval = 20
+enemy_spawn_interval = 40
 
 [node name="Spawner2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 7097, 24452 )
 max_enemy_count = 2
+enemy_spawn_interval = 40
 
 [node name="Spawner3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 6144, 11392 )
 max_enemy_count = 1
 enemy_template = ExtResource( 3 )
+enemy_spawn_interval = 40
 
 [node name="Spawner4" parent="." instance=ExtResource( 2 )]
 position = Vector2( 7936, 1792 )
 max_enemy_count = 2
 enemy_template = ExtResource( 4 )
+enemy_spawn_interval = 40
 
 [node name="Spawner5" parent="." instance=ExtResource( 2 )]
 position = Vector2( 22272, 9216 )
 max_enemy_count = 2
+enemy_spawn_interval = 40
 
 [node name="Spawner6" parent="." instance=ExtResource( 2 )]
 position = Vector2( 23808, 15744 )
 max_enemy_count = 2
 enemy_template = ExtResource( 5 )
+enemy_spawn_interval = 40
 
 [node name="Spawner7" parent="." instance=ExtResource( 2 )]
 position = Vector2( 19968, 12800 )
 max_enemy_count = 1
 enemy_template = ExtResource( 3 )
+enemy_spawn_interval = 40
 
 [node name="Spawner8" parent="." instance=ExtResource( 2 )]
 position = Vector2( 20864, 23424 )
 max_enemy_count = 2
 enemy_template = ExtResource( 3 )
+enemy_spawn_interval = 40
 
 [node name="Spawner9" parent="." instance=ExtResource( 2 )]
 position = Vector2( 18304, 22272 )
 max_enemy_count = 2
 enemy_template = ExtResource( 4 )
+enemy_spawn_interval = 40
 
 [node name="Spawner10" parent="." instance=ExtResource( 2 )]
 position = Vector2( 18304, 640 )
 max_enemy_count = 2
 enemy_template = ExtResource( 4 )
+enemy_spawn_interval = 40
 
 [node name="Spawner11" parent="." instance=ExtResource( 2 )]
 max_enemy_count = 1
 enemy_template = ExtResource( 5 )
+enemy_spawn_interval = 40
 
 [node name="Spawner12" parent="." instance=ExtResource( 2 )]
 position = Vector2( 9216, 4352 )
 max_enemy_count = 1
+enemy_spawn_interval = 40
 
 [node name="Spawner13" parent="." instance=ExtResource( 2 )]
 position = Vector2( 8576, 17280 )
 max_enemy_count = 4
 enemy_template = ExtResource( 4 )
+enemy_spawn_interval = 20
 
 [node name="Spawner14" parent="." instance=ExtResource( 2 )]
 position = Vector2( 23296, 17152 )
 max_enemy_count = 1
+enemy_spawn_interval = 40
 
 [node name="Spawner15" parent="." instance=ExtResource( 2 )]
 position = Vector2( 15488, 9472 )
 max_enemy_count = 4
 enemy_template = ExtResource( 4 )
+enemy_spawn_interval = 40
 
 [node name="Spawner16" parent="." instance=ExtResource( 2 )]
 position = Vector2( 4096, 16896 )
 max_enemy_count = 1
 enemy_template = ExtResource( 3 )
+enemy_spawn_interval = 40
 
 [node name="Spawner17" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1664, 14464 )
 max_enemy_count = 4
+enemy_spawn_interval = 40
 
 [node name="Spawner18" parent="." instance=ExtResource( 2 )]
 position = Vector2( 768, 24448 )
 max_enemy_count = 2
 enemy_template = ExtResource( 4 )
+enemy_spawn_interval = 40
 
 [node name="Spawner19" parent="." instance=ExtResource( 2 )]
 position = Vector2( 10240, 19968 )
 max_enemy_count = 1
 enemy_template = ExtResource( 3 )
+enemy_spawn_interval = 40
 
 [node name="Spawner20" parent="." instance=ExtResource( 2 )]
 position = Vector2( 8704, 11008 )
 max_enemy_count = 8
 enemy_template = ExtResource( 4 )
+enemy_spawn_interval = 40
