@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal village_entered(name)
+
 # Declare member variables here. Examples:
 const SPEED = 350
 
@@ -111,8 +113,8 @@ func attack_tick(delta):
 	$Weapon.rotation = weapon_rotation + self.direction.angle()
 
 
-func take_damage(damage):
-	print("Take damage:", damage)
+func take_damage(damage, name):
+	print("Player takes damage:", damage, "from", name)
 	set_health(health - damage)
 
 	if self.health <= 0:
@@ -254,3 +256,8 @@ func load_save_data(data):
 	finished_bard_quests = data["finished_bard_quests"]
 	active_npc_quests = data["active_npc_quests"]
 	active_bard_quests = data["active_bard_quests"]
+
+
+func _on_InteractionArea_area_shape_entered(_area_rid, area, _area_shape_index, _local_shape_index):
+	if area.get_parent().name == "Villages":
+		emit_signal("village_entered", area.name)

@@ -83,6 +83,7 @@ animations = [ {
 "speed": 5.0
 }, {
 "frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+
 "loop": true,
 "name": "run_left",
 "speed": 4.0
@@ -119,7 +120,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=19]
-extents = Vector2( 16, 32 )
+extents = Vector2( 16, 34 )
 
 [sub_resource type="CircleShape2D" id=20]
 radius = 145.248
@@ -134,7 +135,7 @@ animation = "stand_down"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 32 )
+position = Vector2( 0, 30 )
 shape = SubResource( 19 )
 
 [node name="Weapon" parent="." instance=ExtResource( 3 )]
@@ -144,8 +145,12 @@ shape = SubResource( 19 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource( 20 )
 
+
 [node name="PlayerRun" type="AudioStreamPlayer2D" parent="."]
 
 [node name="PlayerAttack" type="AudioStreamPlayer2D" parent="."]
 
 [node name="PlayerHurt" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="area_shape_entered" from="InteractionArea" to="." method="_on_InteractionArea_area_shape_entered"]
+
