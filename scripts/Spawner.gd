@@ -2,11 +2,13 @@ extends Node
 
 export(int) var max_enemy_count
 export(PackedScene) var enemy_template
+export(int) var enemy_spawn_interval
 
 signal enemy_killed(xp_reward, name)
 
 
 func _ready():
+	$Timer.wait_time = enemy_spawn_interval
 	create_enemy(1)
 
 

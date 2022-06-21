@@ -29,7 +29,7 @@ func create_enemy(i):
 	var name = spawn_name + "_" + str(i)
 
 	enemy.name = name
-	enemy.position = Vector2(rand_range(-50, 50), rand_range(-50, 50))
+	enemy.position = Vector2(rand_range(-100, 100), rand_range(-100, 100))
 	enemy.connect("killed", self, "_on_Enemy_killed")
 
 	add_child(enemy)
